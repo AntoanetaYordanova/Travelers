@@ -49,8 +49,8 @@ h2 {
   color: #e8ba02;
 }
 
-ul .active-link {
+ul .active {
   color: #e8ba02;
   text-decoration: underline;
 }
-/*# sourceMappingURL=Nav.css.map */
+/*# sourceMappingURL=Nav.module.css.map */

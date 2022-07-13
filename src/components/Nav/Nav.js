@@ -1,19 +1,19 @@
 import { Link, NavLink } from 'react-router-dom';
-import './Nav.css';
+import styles from './Nav.module.css'
 
 const Nav = () => {
-    const isActive = ({ isActive }) => (isActive ? 'active-link' : undefined);
+    const isActive = ({ isActive }) => (isActive ? styles['active'] : undefined);
 
     return (
         <nav>
             <h2>
-                <Link to={'/'} className="accent-yellow">
+                <Link to={'/'} className={styles['accent-yellow']}>
                     Travelers
                 </Link>
             </h2>
-            <ul className="nav-menu">
+            <ul className={styles['nav-menu']} >
                 <li>
-                    <NavLink to={'/'} className={isActive}>
+                    <NavLink to={'/'} className={isActive} >
                         Home
                     </NavLink>
                 </li>
@@ -33,7 +33,7 @@ const Nav = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to={'/create'} className={isActive}>
+                    <NavLink to={'/post'} className={isActive}>
                         Create Post
                     </NavLink>
                 </li>

@@ -17,9 +17,36 @@
           justify-content: center;
 }
 
-h1 {
+.heroh1 {
   margin: 10% 0 10% 0;
-  font-size: 4rem;
+  font-size: 4.3rem;
   text-align: center;
 }
-/*# sourceMappingURL=Home.css.map */
+
+span.yellow-accent {
+  margin: 0 10px 0 10px;
+  color: #e8ba02;
+}
+
+.description-section {
+  width: 100%;
+  background: #EAF0FC;
+  padding: 5% 0 5% 0;
+}
+
+.description-section p {
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 2rem;
+}
+
+.description-section p a {
+  color: #F9C807;
+  text-decoration: underline;
+}
+
+.description-section p a:hover {
+  color: #e8ba02;
+}
+/*# sourceMappingURL=Home.module.css.map */
