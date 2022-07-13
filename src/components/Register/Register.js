@@ -1,4 +1,5 @@
 import styles from './Register.module.css';
+import { Link } from 'react-router-dom';
 
 const Regitser = () => {
     return( 
@@ -9,6 +10,7 @@ const Regitser = () => {
                 <input type="password" name="password" id="password" placeholder="Password"/>
                 <input type="password" name="re-password" id="re-password" placeholder="Repeat password"/>
                 <button>Register</button>
+                <p>Already registered? <Link to={'/login'}>Login here</Link></p> 
             </form>
         </section>
 

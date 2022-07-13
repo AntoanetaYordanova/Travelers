@@ -50,7 +50,7 @@
 }
 
 .form-wrapper form button {
-  width: 30%;
+  width: 100%;
   padding: 10px 0;
   font-size: 1rem;
   text-transform: uppercase;
@@ -64,5 +64,15 @@
 .form-wrapper form button:hover {
   cursor: pointer;
   background: #e8ba02;
+}
+
+.form-wrapper form p {
+  color: #252e48;
+  font-size: 0.6rem;
+  margin-top: 10px;
+}
+
+.form-wrapper form p a {
+  color: #F9C807;
 }
 /*# sourceMappingURL=Register.module.css.map */

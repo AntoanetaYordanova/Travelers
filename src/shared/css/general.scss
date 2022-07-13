@@ -7,6 +7,7 @@ $base-color-light: #f7f9fb;
 $base-color-dark: #EAF0FC;
 $accent-yellow-color-light: #F9C807;
 $accent-yellow-color-dark: #e8ba02;
+$accent-blue-color: #252e48;
 
 $logo-font-size: 1.6rem;
 $menu-font-size: 1.1rem;
@@ -21,8 +22,6 @@ $body-font-size-small: 2rem;
         padding-right: 20px;
     }
 }
-
-// #FFF2C0
 
 @mixin form-style {
     background: $base-color-dark;
@@ -61,12 +60,12 @@ $body-font-size-small: 2rem;
             font-family: "Noto Sans KR", sans-serif;
             font-size: 2.3rem;
             margin-bottom: 20px;
-            color: #252e48;
+            color: $accent-blue-color;
             text-transform: uppercase;
         }
 
         button {
-            width: 30%;
+            width: 100%;
             padding: 10px 0;
             font-size: 1rem;
             text-transform: uppercase;
@@ -82,6 +81,13 @@ $body-font-size-small: 2rem;
             background: $accent-yellow-color-dark;
         }
 
-        
+        p {
+            color: $accent-blue-color;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            a {
+                color: $accent-yellow-color-light;
+            }
+        }
     }
 }
