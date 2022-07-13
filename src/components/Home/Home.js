@@ -18,7 +18,7 @@ const Home = () => {
                 <article className={styles['description-section']}>
                     <p>
                         Travelers is blog where like-minded people share
-                        experience about places, countries and cultures. <Link to={'/login'}>Join</Link> now our community or <Link to={'/post'}> share</Link> with us your last
+                        experience about places, countries and cultures. <Link to={'/register'}>Join</Link> now our community or <Link to={'/post'}> share</Link> with us your last
                         adventure if you are already part of it.
                     </p>
                 </article>

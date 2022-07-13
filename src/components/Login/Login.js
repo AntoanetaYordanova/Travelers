@@ -1,20 +1,19 @@
-import styles from './Register.module.css';
+import styles from './Login.module.css';
 import { Link } from 'react-router-dom';
 
-const Regitser = () => {
+const Login = () => {
     return( 
         <section className={styles['form-wrapper']}>
             <form className={styles.form} method="POST">
-                <h3>Register</h3>
+                <h3>Login</h3>
                 <input type="text" name="email" id="email" placeholder="Email"/>
                 <input type="password" name="password" id="password" placeholder="Password"/>
-                <input type="password" name="re-password" id="re-password" placeholder="Repeat password"/>
-                <button>Sign Up</button>
-                <p>Already registered? <Link to={'/login'}>Log In</Link></p> 
+                <button>Log In</button>
+                <p>Not registered yet? <Link to={'/register'}>Sign Up</Link></p> 
             </form>
         </section>
 
     )
 }
 
-export default Regitser;
+export default Login;
