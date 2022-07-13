@@ -10,12 +10,13 @@ $accent-yellow-color-dark: #e8ba02;
 
 $logo-font-size: 1.6rem;
 $menu-font-size: 1.1rem;
+$hero-title-size: 4rem;
 
 @mixin menu-flex {
     display: flex;
     align-content: center;
 
     li {
-        padding-right: 12px;
+        padding-right: 20px;
     }
 }

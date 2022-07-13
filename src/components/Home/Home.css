@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap");
+.hero-section {
+  background: url("../../../public/images/lucas-wesney-ZNz5UPRb2N8-unsplash.jpg") fixed;
+  background-position: center;
+  background-size: cover;
+  height: 85vh;
+  width: 100%;
+}
+
+.hero-title {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+h1 {
+  margin: 10% 0 10% 0;
+  font-size: 4rem;
+  text-align: center;
+}
+/*# sourceMappingURL=Home.css.map */
