@@ -1,0 +1,5 @@
+@import '../../shared/css/general.scss';
+
+.form-wrapper {
+    @include form-style;
+}

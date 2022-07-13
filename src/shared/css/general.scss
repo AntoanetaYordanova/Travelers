@@ -21,3 +21,67 @@ $body-font-size-small: 2rem;
         padding-right: 20px;
     }
 }
+
+// #FFF2C0
+
+@mixin form-style {
+    background: $base-color-dark;
+    padding: 11 % 20%;
+    min-height: 90vh;
+
+    form {
+        background: #f7f9fb;
+        display: flex;
+        width: 49%;
+        margin: 0 auto;
+        flex-direction: column;
+        align-items: center;
+        padding: 3% 3%;
+        border-radius: 8px;
+        border: 1px solid $accent-yellow-color-light;
+
+        input {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 18px 15px;
+            font-family: Verdana;
+            letter-spacing: 0.125em;
+            border-radius: 6px;
+            border: 1px solid $accent-yellow-color-light;
+            font-size: 0.8rem;
+        }
+
+        input:focus {
+            outline: none;
+            border: 2px solid $accent-yellow-color-dark;
+            background: rgb(248, 248, 248);
+        }
+
+        h3 {
+            font-family: "Noto Sans KR", sans-serif;
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+            color: #252e48;
+            text-transform: uppercase;
+        }
+
+        button {
+            width: 30%;
+            padding: 10px 0;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border: 1px solid $accent-yellow-color-light;
+            background: $accent-yellow-color-light;
+            color: #fff;
+            border-radius: 7px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background: $accent-yellow-color-dark;
+        }
+
+        
+    }
+}

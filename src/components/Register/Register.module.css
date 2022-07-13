@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap");
+.form-wrapper {
+  background: #EAF0FC;
+  padding: 11%;
+  min-height: 90vh;
+}
+
+.form-wrapper form {
+  background: #f7f9fb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 49%;
+  margin: 0 auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3% 3%;
+  border-radius: 8px;
+  border: 1px solid #F9C807;
+}
+
+.form-wrapper form input {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 18px 15px;
+  font-family: Verdana;
+  letter-spacing: 0.125em;
+  border-radius: 6px;
+  border: 1px solid #F9C807;
+  font-size: 0.8rem;
+}
+
+.form-wrapper form input:focus {
+  outline: none;
+  border: 2px solid #e8ba02;
+  background: #f8f8f8;
+}
+
+.form-wrapper form h3 {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+  color: #252e48;
+  text-transform: uppercase;
+}
+
+.form-wrapper form button {
+  width: 30%;
+  padding: 10px 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border: 1px solid #F9C807;
+  background: #F9C807;
+  color: #fff;
+  border-radius: 7px;
+  margin-top: 20px;
+}
+
+.form-wrapper form button:hover {
+  cursor: pointer;
+  background: #e8ba02;
+}
+/*# sourceMappingURL=Register.module.css.map */
