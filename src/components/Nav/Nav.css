@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap");
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #f7f9fb;
+  padding: 20px 30px;
+}
+
+.nav-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.nav-menu li {
+  padding-right: 12px;
+}
+
+.nav-menu a {
+  font-size: 1.1rem;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.nav-menu a:hover {
+  color: #e8ba02;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+.accent-yellow {
+  color: #F9C807;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.accent-yellow:hover, ul .accent-yellow:hover {
+  color: #e8ba02;
+}
+
+ul .active-link {
+  color: #e8ba02;
+  text-decoration: underline;
+}
+/*# sourceMappingURL=Nav.css.map */

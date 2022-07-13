@@ -1,0 +1,40 @@
+@import '../../shared/css/general.scss';
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $base-color-light;
+    padding: 20px 30px;
+}
+
+.nav-menu {
+    @include menu-flex;
+    
+    a {
+        font-size: $menu-font-size;
+        transition: 0.2s;
+    }
+
+    a:hover {
+        color: $accent-yellow-color-dark;       
+    }
+}
+
+h2 {
+    font-size: $logo-font-size;
+}
+
+.accent-yellow {
+    color: $accent-yellow-color-light;
+    transition: 0.2s;
+}
+
+.accent-yellow:hover, ul .accent-yellow:hover {
+    color: $accent-yellow-color-dark;
+}
+
+ul .active-link {
+    color: $accent-yellow-color-dark;
+    text-decoration: underline;
+}

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,OAAO,CAAC,+IAAI;ADEZ,AAAA,CAAC,CAAA;EACG,WAAW,ECDF,cAAc,EAAE,UAAU;CDEtC;;AAED,AAAA,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,CAAC;EACnB,WAAW,ECJE,kBAAkB,EAAE,KAAK;CDKzC",
+    "sources": [
+        "App.scss",
+        "shared/css/general.scss"
+    ],
+    "names": [],
+    "file": "App.css"
+}
