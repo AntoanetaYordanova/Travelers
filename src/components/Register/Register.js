@@ -76,7 +76,7 @@ const Regitser = () => {
     };
 
     const repassValidator = (e) => {
-        if(password !== repass) {
+        if(password !== repass || password === '') {
             setErrors(oldState => {
                 return {...oldState, repass : 'Password don\'t match', hasErrors : true}
             })
