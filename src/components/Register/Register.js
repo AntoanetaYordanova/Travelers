@@ -38,7 +38,11 @@ const Regitser = () => {
                    login(userInfo);
                    navigate('/');
             } catch (err) {
-                console.dir(err);
+                if(err.message === 'Firebase: Error (auth/email-already-in-use).') {
+                    setErrors(oldState => {
+                        return {...oldState, email : 'Email is already in use', hasErrors : true}
+                    })
+                }
             }
         }
     };
