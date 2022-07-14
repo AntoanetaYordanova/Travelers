@@ -1,16 +1,16 @@
 import auth from "../config/firebaseConfig";
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 
 const register = async (email, password) => {
     return await createUserWithEmailAndPassword(auth, email, password);
 }
 
-const login = () => {
-
+const login = async (email, password) => {
+    return await signInWithEmailAndPassword(auth, email, password)
 }
 
-const logout = () => {
-
+const logout = async () => {
+    return await signOut(auth);
 }
 
 export {

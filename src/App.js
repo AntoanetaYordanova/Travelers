@@ -7,8 +7,11 @@ import Home from './components/Home/Home';
 import CreatePost from './components/CreatePost/CreatePost';
 import Regitser from './components/Register/Register';
 import Login from './components/Login/Login';
+import Logout from './components/Logout/Logout';
 
 import { AuthProvider } from './contexts/authContext';
+
+//TODO: Guards
 
 function App() {
     return (
@@ -23,6 +26,7 @@ function App() {
                         <Route path="/post" element={<CreatePost />} />
                         <Route path="/register" element={<Regitser />} />
                         <Route path="/login" element={<Login />} />
+                        <Route path="/logout" element={<Logout />} />
                     </Routes>
                 </main>
             </div>
