@@ -19,20 +19,40 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 3% 3%;
+  padding: 3% 4%;
   border-radius: 8px;
   border: 1px solid #F9C807;
 }
 
+.form-wrapper form div {
+  width: 100%;
+  position: relative;
+}
+
+.form-wrapper form p.error {
+  position: absolute;
+  bottom: 0;
+  color: #ed3030;
+  font-size: 1rem;
+}
+
+.form-wrapper form p.hidden {
+  display: none;
+}
+
 .form-wrapper form input {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   padding: 18px 15px;
   font-family: Verdana;
   letter-spacing: 0.125em;
   border-radius: 6px;
   border: 1px solid #F9C807;
   font-size: 0.8rem;
+}
+
+.form-wrapper form .error-input {
+  border: 1px solid #ed3030;
 }
 
 .form-wrapper form input:focus {

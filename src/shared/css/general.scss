@@ -35,19 +35,39 @@ $body-font-size-small: 2rem;
         margin: 0 auto;
         flex-direction: column;
         align-items: center;
-        padding: 3% 3%;
+        padding: 3% 4%;
         border-radius: 8px;
         border: 1px solid $accent-yellow-color-light;
 
+        div {
+            width: 100%;
+            position: relative;
+        }
+
+        p.error {
+            position: absolute;
+            bottom: 0;
+            color: rgb(237, 48, 48);
+            font-size: 1rem;
+        }
+
+        p.hidden {
+            display: none;
+        }
+
         input {
             width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             padding: 18px 15px;
             font-family: Verdana;
             letter-spacing: 0.125em;
             border-radius: 6px;
             border: 1px solid $accent-yellow-color-light;
             font-size: 0.8rem;
+        }
+
+        .error-input {
+            border: 1px solid rgb(237, 48, 48);;
         }
 
         input:focus {
