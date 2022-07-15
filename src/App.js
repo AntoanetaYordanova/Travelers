@@ -8,6 +8,7 @@ import CreatePost from './components/CreatePost/CreatePost';
 import Regitser from './components/Register/Register';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
+import Blog from './components/Blog/Blog';
 
 import { AuthProvider } from './contexts/authContext';
 
@@ -28,6 +29,7 @@ function App() {
                         <Route path="/register" element={<Regitser />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/logout" element={<Logout />} />
+                        <Route path="/blog" element={<Blog />} />
                     </Routes>
                 </main>
             </div>
