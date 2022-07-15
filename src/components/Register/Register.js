@@ -88,17 +88,17 @@ const Regitser = () => {
     };
 
     const emailChangeHandler = (e) => {
-        const currentValue = e.target.value;
+        const currentValue = (e.target.value).trim();
         setEmail(currentValue);
     };
 
     const passwordChangeHandler = (e) => {
-        const currentValue = e.target.value;
+        const currentValue = (e.target.value).trim();
         setPassword(currentValue);
     };
 
     const repassChangeHandler = (e) => {
-        const currentValue = e.target.value;
+        const currentValue = (e.target.value).trim();
         setRepass(currentValue);
     };
 
@@ -156,7 +156,7 @@ const Regitser = () => {
                         {errors.repass}
                     </p>
                 </div>
-                <button disabled={errors.hasErrors}>Sign Up</button>
+                <button>Sign Up</button>
                 <p>
                     Already registered? <Link to={'/login'}>Log In</Link>
                 </p>
