@@ -5,10 +5,8 @@ import { useAuthContext } from '../../contexts/authContext'
 const Nav = () => {
     const isActive = ({ isActive }) =>
         isActive ? styles['active'] : undefined;
-    const { isAuthenticated, user } = useAuthContext();
+    const { isAuthenticated } = useAuthContext();
     
-    console.log(user);
-
     const userNav = (
         <>
             <li>

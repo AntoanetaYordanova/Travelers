@@ -13,6 +13,7 @@ import { AuthProvider } from './contexts/authContext';
 
 //TODO: Guards
 
+
 function App() {
     return (
         <AuthProvider>
