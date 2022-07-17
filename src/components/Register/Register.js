@@ -11,11 +11,22 @@ const Regitser = () => {
     const passwordRegEx = /^.*(?=.*\d)(?=.*[a-zA-Z]).*$/;
     const emailRegex = /^.+@.+\..+$/;
     const [errors, setErrors] = useState({
-        email: '',
-        username: '',
-        password: '',
-        repass: '',
-        hasErrors: false,
+        email: {
+            message : '',
+            valid : true
+        },
+        username:  {
+            message : '',
+            valid : true
+        },
+        password:  {
+            message : '',
+            valid : true
+        },
+        repass:  {
+            message : '',
+            valid : true
+        },
     });
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
@@ -26,10 +37,11 @@ const Regitser = () => {
         ev.preventDefault();
 
         emailValidator();
+        usernameValidator();
         passwordValidator();
         repassValidator();
 
-        if(!errors.hasErrors) {
+        if(!hasErrors()) {
             try {
                    const newUser = await authService.register(email, password);
                    const userInfo = {
@@ -44,71 +56,70 @@ const Regitser = () => {
                 console.log(err.message);
                 if(err.message === 'Firebase: Error (auth/email-already-in-use).') {
                     setErrors(oldState => {
-                        return {...oldState, email : 'Email is already in use', hasErrors : true}
+                        return {...oldState, email : {message : 'Email is already in use', valid : false}}
                     })
                 } else if(err.message === 'Firebase: Error (auth/invalid-email).'){
                     setErrors(oldState => {
-                        return {...oldState, email : 'Please enter a valid email', hasErrors : true}
+                        return {...oldState, email : {message : 'Please enter a valid email', valid : false}}
                     })
                 }
             }
         }
     };
 
-    const emailValidator = (e) => {
+    const emailValidator = () => {
         if(!emailRegex.test(email)) {
             setErrors(oldState => {
-                return {...oldState, email : 'Please enter a valid email', hasErrors : true}
+                return {...oldState, email : {message : 'Please enter a valid email', valid : false}}
             })
         } else {
             setErrors(oldState => {
-                return {...oldState, email : '', hasErrors : false}
+                return {...oldState,  email : {message : '', valid : true}}
             })
         }
     };
 
-    const usernameValidator = (e) => {
+    const usernameValidator = () => {
         if(username == '') {
             setErrors(oldState => {
-                return {...oldState, username : 'Username is required', hasErrors : true}
+                return {...oldState, username : {message : 'Username is required', valid : false}};
             })
         } else {
             setErrors(oldState => {
-                return {...oldState, username : '', hasErrors : false}
+                return {...oldState, username : {message : '', valid : true}};
             })
         }
     };
 
 
-    const passwordValidator = (e) => {
+    const passwordValidator = () => {
         if (password.length < 6) {
             setErrors(oldState => {
-                return {...oldState, password : 'Password must be at least 6 characters long', hasErrors : true}
+                return {...oldState, password : {message : 'Password must be at least 6 characters long', valid : false}}
             })
         } else if (!passwordRegEx.test(password)) {
             setErrors(oldState => {
-                return {...oldState, password : 'Password should contain at least one number and one letter', hasErrors : true}
+                return {...oldState, password : {message : 'Password should contain at least one number and one letter', valid : false}}
             })
         } else {
             setErrors(oldState => {
-                return {...oldState, password : '', hasErrors : false}
+                return {...oldState, password : {message : '', valid : true}}
             })
         }
     };
 
-    const repassValidator = (e) => {
+    const repassValidator = () => {
         if(password !== repass ){
             setErrors(oldState => {
-                return {...oldState, repass : 'Password don\'t match', hasErrors : true}
+                return {...oldState, repass : {message : 'Password don\'t match', valid : false}};
             })
         } else if( password === ''){
             setErrors(oldState => {
-                return {...oldState, repass : 'Please repeat you password', hasErrors : true}
+                return {...oldState, repass : {message : 'Please repeat you password', valid : false}};
             })
-        } 
-         else {
+        } else {
             setErrors(oldState => {
-                return {...oldState, repass : '', hasErrors : false}
+                return {...oldState, repass : {message : '', valid : true}};
             })
         }
     };
@@ -133,6 +144,13 @@ const Regitser = () => {
         setRepass(currentValue);
     };
 
+    function hasErrors() {
+        if(errors.email.valid && errors.password.valid && errors.repass.valid && errors.username.valid) {
+            return false;
+        }
+        return true;
+    }
+
     return (
         <section className={styles['form-wrapper']}>
             <form
@@ -143,7 +161,7 @@ const Regitser = () => {
                 <h3>Register</h3>
                 <div>
                     <input
-                        className={errors.email ? styles['error-input'] : ''}
+                        className={!errors.email.valid ? styles['error-input'] : ''}
                         type="text"
                         name="email"
                         id="email"
@@ -151,13 +169,13 @@ const Regitser = () => {
                         onBlur={emailValidator}
                         onChange={emailChangeHandler}
                     />
-                    <p className={errors.email ? styles.error : styles.hidden}>
-                        {errors.email}
+                    <p className={!errors.email.valid ? styles.error : styles.hidden}>
+                        {errors.email.message}
                     </p>
                 </div>
                 <div>
                     <input
-                        className={errors.username ? styles['error-input'] : ''}
+                        className={!errors.username.valid ? styles['error-input'] : ''}
                         type="text"
                         name="username"
                         id="username"
@@ -165,13 +183,13 @@ const Regitser = () => {
                         onBlur={usernameValidator}
                         onChange={usernameChangeHandler}
                     />
-                    <p className={errors.username ? styles.error : styles.hidden}>
-                        {errors.username}
+                    <p className={!errors.username.valid ? styles.error : styles.hidden}>
+                        {errors.username.message}
                     </p>
                 </div>
                 <div>
                     <input
-                        className={errors.password ? styles['error-input'] : ''}
+                        className={!errors.password.valid ? styles['error-input'] : ''}
                         type="password"
                         name="password"
                         id="password"
@@ -181,15 +199,15 @@ const Regitser = () => {
                     />
                     <p
                         className={
-                            errors.password ? styles.error : styles.hidden
+                            !errors.password.valid ? styles.error : styles.hidden
                         }
                     >
-                        {errors.password}
+                        {errors.password.message}
                     </p>
                 </div>
                 <div>
                     <input
-                        className={errors.repass ? styles['error-input'] : ''}
+                        className={!errors.repass.valid ? styles['error-input'] : ''}
                         type="password"
                         name="repass"
                         id="repass"
@@ -197,8 +215,8 @@ const Regitser = () => {
                         onBlur={repassValidator}
                         onChange={repassChangeHandler}
                     />
-                    <p className={errors.repass ? styles.error : styles.hidden}>
-                        {errors.repass}
+                    <p className={!errors.repass.valid ? styles.error : styles.hidden}>
+                        {errors.repass.message}
                     </p>
                 </div>
                 <button>Sign Up</button>
