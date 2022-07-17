@@ -9,6 +9,7 @@ import Regitser from './components/Register/Register';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import Blog from './components/Blog/Blog';
+import Footer from './components/Footer/Footer';
 
 import { AuthProvider } from './contexts/authContext';
 
@@ -32,6 +33,7 @@ function App() {
                         <Route path="/blog" element={<Blog />} />
                     </Routes>
                 </main>
+                <Footer/>
             </div>
         </AuthProvider>
     );

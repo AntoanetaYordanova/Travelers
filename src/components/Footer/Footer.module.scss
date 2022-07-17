@@ -1,0 +1,12 @@
+@import '../../shared/css/general.scss';
+
+.footer {
+    background: $base-color-light;
+    padding: 20px;
+    border-top: 1px solid $base-color-dark;
+
+    h5 {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+}
