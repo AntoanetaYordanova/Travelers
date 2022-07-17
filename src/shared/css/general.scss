@@ -9,10 +9,10 @@ $accent-yellow-color-light: #F9C807;
 $accent-yellow-color-dark: #e8ba02;
 $accent-blue-color: #252e48;
 
-$logo-font-size: 1.6rem;
-$menu-font-size: 1.1rem;
+$logo-font-size: 2rem;
+$menu-font-size: 1.3rem;
 $hero-title-size: 4.3rem;
-$body-font-size-small: 2rem;
+$body-font-size-large: 2rem;
 
 @mixin menu-flex {
     display: flex;
@@ -25,7 +25,7 @@ $body-font-size-small: 2rem;
 
 @mixin form-style {
     background: $base-color-dark;
-    padding: 11 % 20%;
+    padding: 11% 20%;
     min-height: 90vh;
 
     form {
@@ -35,7 +35,7 @@ $body-font-size-small: 2rem;
         margin: 0 auto;
         flex-direction: column;
         align-items: center;
-        padding: 3% 4%;
+        padding: 7% 4%;
         border-radius: 8px;
         border: 1px solid $accent-yellow-color-light;
 
@@ -55,7 +55,8 @@ $body-font-size-small: 2rem;
             display: none;
         }
 
-        input {
+        input, textarea {
+            resize: none;
             width: 100%;
             margin-bottom: 25px;
             padding: 18px 15px;
@@ -70,7 +71,7 @@ $body-font-size-small: 2rem;
             border: 1px solid rgb(237, 48, 48);;
         }
 
-        input:focus {
+        input:focus, textarea:focus {
             outline: none;
             border: 2px solid $accent-yellow-color-dark;
             background: rgb(248, 248, 248);
@@ -109,5 +110,14 @@ $body-font-size-small: 2rem;
                 color: $accent-yellow-color-light;
             }
         }
+    }
+}
+
+@mixin post-form {
+    @include form-style;
+    
+    padding: 7%;
+    button.post-form-button {
+        font-size: 1.3rem;
     }
 }

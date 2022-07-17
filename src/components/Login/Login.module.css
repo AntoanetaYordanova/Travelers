@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap");
 .form-wrapper {
   background: #EAF0FC;
-  padding: 11%;
+  padding: 11% 20%;
   min-height: 90vh;
 }
 
@@ -19,7 +19,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 3% 4%;
+  padding: 7% 4%;
   border-radius: 8px;
   border: 1px solid #F9C807;
 }
@@ -40,9 +40,10 @@
   display: none;
 }
 
-.form-wrapper form input {
+.form-wrapper form input, .form-wrapper form textarea {
+  resize: none;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   padding: 18px 15px;
   font-family: Verdana;
   letter-spacing: 0.125em;
@@ -55,7 +56,7 @@
   border: 1px solid #ed3030;
 }
 
-.form-wrapper form input:focus {
+.form-wrapper form input:focus, .form-wrapper form textarea:focus {
   outline: none;
   border: 2px solid #e8ba02;
   background: #f8f8f8;

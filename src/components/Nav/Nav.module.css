@@ -26,7 +26,7 @@ nav {
 }
 
 .nav-menu a {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -36,7 +36,7 @@ nav {
 }
 
 h2 {
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 
 .accent-yellow {
