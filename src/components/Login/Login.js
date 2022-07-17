@@ -30,6 +30,7 @@ const Login = () => {
                 id: newUser.user.uid,
                 email: newUser.user.email,
                 token: newUser.user.accessToken,
+                username: newUser.user.username
             };
             login(userInfo);
             navigate('/');

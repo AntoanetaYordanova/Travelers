@@ -12,11 +12,13 @@ const Regitser = () => {
     const emailRegex = /^.+@.+\..+$/;
     const [errors, setErrors] = useState({
         email: '',
+        username: '',
         password: '',
         repass: '',
         hasErrors: false,
     });
     const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [repass, setRepass] = useState('');
 
@@ -33,7 +35,8 @@ const Regitser = () => {
                    const userInfo = {
                     id : newUser.user.uid,
                     email : newUser.user.email,
-                    token : newUser.user.accessToken
+                    token : newUser.user.accessToken,
+                    username: newUser.user.username
                    }
                    login(userInfo);
                    navigate('/');
@@ -64,6 +67,19 @@ const Regitser = () => {
         }
     };
 
+    const usernameValidator = (e) => {
+        if(username == '') {
+            setErrors(oldState => {
+                return {...oldState, username : 'Username is required', hasErrors : true}
+            })
+        } else {
+            setErrors(oldState => {
+                return {...oldState, username : '', hasErrors : false}
+            })
+        }
+    };
+
+
     const passwordValidator = (e) => {
         if (password.length < 6) {
             setErrors(oldState => {
@@ -81,11 +97,16 @@ const Regitser = () => {
     };
 
     const repassValidator = (e) => {
-        if(password !== repass || password === '') {
+        if(password !== repass ){
             setErrors(oldState => {
                 return {...oldState, repass : 'Password don\'t match', hasErrors : true}
             })
-        } else {
+        } else if( password === ''){
+            setErrors(oldState => {
+                return {...oldState, repass : 'Please repeat you password', hasErrors : true}
+            })
+        } 
+         else {
             setErrors(oldState => {
                 return {...oldState, repass : '', hasErrors : false}
             })
@@ -95,6 +116,11 @@ const Regitser = () => {
     const emailChangeHandler = (e) => {
         const currentValue = (e.target.value).trim();
         setEmail(currentValue);
+    };
+
+    const usernameChangeHandler = (e) => {
+        const currentValue = (e.target.value).trim();
+        setUsername(currentValue);
     };
 
     const passwordChangeHandler = (e) => {
@@ -127,6 +153,20 @@ const Regitser = () => {
                     />
                     <p className={errors.email ? styles.error : styles.hidden}>
                         {errors.email}
+                    </p>
+                </div>
+                <div>
+                    <input
+                        className={errors.username ? styles['error-input'] : ''}
+                        type="text"
+                        name="username"
+                        id="username"
+                        placeholder="Username"
+                        onBlur={usernameValidator}
+                        onChange={usernameChangeHandler}
+                    />
+                    <p className={errors.username ? styles.error : styles.hidden}>
+                        {errors.username}
                     </p>
                 </div>
                 <div>

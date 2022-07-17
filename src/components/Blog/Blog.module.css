@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap");
+.post-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3%;
+}
+
+.post-section:nth-child(odd) {
+  background: #EAF0FC;
+}
+
+.post-section:nth-child(odd) a:hover {
+  color: #e8ba02;
+  background: #f7f9fb;
+}
+
+.post-section:nth-child(even) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  background: #f7f9fb;
+}
+
+.post-section:nth-child(even) a:hover {
+  color: #e8ba02;
+  background: #EAF0FC;
+}
+
+.img-wrapper {
+  width: 40%;
+}
+
+.img-wrapper img {
+  width: 100%;
+  border: 2px solid #e8ba02;
+  border-radius: 6px;
+}
+
+.content-section {
+  width: 40%;
+}
+
+.content-section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.1rem;
+  margin-bottom: 1rem;
+}
+
+.content-section p, .content-section a {
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 1.8rem;
+  font-size: 1.2rem;
+  margin-bottom: 3%;
+}
+
+.content-section a {
+  color: #F9C807;
+  border: 1px solid #F9C807;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+/*# sourceMappingURL=Blog.module.css.map */
