@@ -10,6 +10,27 @@
   line-height: 32px;
 }
 
+.post-section .post-actions-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.post-section .post-actions-section a:hover {
+  cursor: pointer;
+}
+
+.post-section .post-actions-section .heart-img-wrapper {
+  width: 20px;
+}
+
+.post-section .post-actions-section .heart-img-wrapper img {
+  width: 100%;
+}
+
 .post-section .img-wrapper {
   width: 70%;
   margin: 30px auto;

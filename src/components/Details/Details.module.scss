@@ -10,6 +10,23 @@
     border-radius: 6px;
     line-height: 32px;
 
+    .post-actions-section {
+        display: flex;
+        justify-content: space-between;
+
+        a:hover {
+            cursor: pointer;
+        }
+
+        .heart-img-wrapper{
+            width: 20px;
+            img {
+                width: 100%;
+            }
+        }
+    }
+   
+
     .img-wrapper {
         width: 70%;
         margin: 30px auto;
