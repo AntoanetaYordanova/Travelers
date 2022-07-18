@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap");
+.post-section {
+  font-size: 1.1rem;
+  width: 85%;
+  margin: 20px auto;
+  text-align: center;
+  background: #EAF0FC;
+  padding: 4%;
+  border-radius: 6px;
+  line-height: 32px;
+}
+
+.post-section .img-wrapper {
+  width: 70%;
+  margin: 30px auto;
+}
+
+.post-section .img-wrapper img {
+  width: 100%;
+  border: 3px solid #e8ba02;
+  border-radius: 6px;
+}
+
+.post-section h2 {
+  font-size: 3.2rem;
+}
+/*# sourceMappingURL=Details.module.css.map */

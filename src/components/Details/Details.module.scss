@@ -1,0 +1,27 @@
+@import '../../shared/css/general.scss';
+
+.post-section {
+    font-size:$post-body-font-size;
+    width: 85%;
+    margin: 20px auto;
+    text-align: center;
+    background: $base-color-dark;
+    padding: 4%;
+    border-radius: 6px;
+    line-height: 32px;
+
+    .img-wrapper {
+        width: 70%;
+        margin: 30px auto;
+        img {
+            width: 100%;
+            border: 3px solid $accent-yellow-color-dark;
+            border-radius: 6px;
+        }
+    }
+
+    h2 {
+        font-size: 3.2rem;
+    }
+}
+

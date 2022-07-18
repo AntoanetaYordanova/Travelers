@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap");
+.wrapper {
+  min-height: 90vh;
+}
+
 .post-section {
   display: -webkit-box;
   display: -ms-flexbox;

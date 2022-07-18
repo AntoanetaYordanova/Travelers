@@ -1,5 +1,5 @@
 import './config/firebaseConfig';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
 
 import Nav from './components/Nav/Nav';
@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import Blog from './components/Blog/Blog';
 import Footer from './components/Footer/Footer';
+import Details from './components/Details/Details';
 
 import { AuthProvider } from './contexts/authContext';
 
@@ -31,6 +32,7 @@ function App() {
                         <Route path="/login" element={<Login />} />
                         <Route path="/logout" element={<Logout />} />
                         <Route path="/blog" element={<Blog />} />
+                        <Route path="/post-details/:id" element={<Details />} />
                     </Routes>
                 </main>
                 <Footer/>

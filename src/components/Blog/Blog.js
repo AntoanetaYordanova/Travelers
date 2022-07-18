@@ -1,32 +1,41 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect } from 'react';
+import { useState } from 'react';
 import * as postService from '../../services/postService';
 import styles from './Blog.module.css';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 const Blog = () => {
+    const [isLoading, setIsLodading] = useState(false);
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         try {
-            postService.getAll()
-            .then (res => {
-               const data = res.docs.map(doc => ({...doc.data(), id : doc.id}));
-               setPosts(data);
+            setIsLodading(true);
+            postService.getAll().then((res) => {
+                const data = res.docs.map((doc) => ({
+                    ...doc.data(),
+                    id: doc.id,
+                }));
+                setPosts(data);
+                setIsLodading(false);
             });
         } catch (err) {
             console.log(err);
         }
-    }, [])
+    }, []);
+
 
     const shortenContent = (content) => {
         const short = content.slice(0, 700);
-        return `${short}...`
-    }
+        return `${short}...`;
+    };
 
-    const mappedPosts = posts.map(e => ({...e, content : shortenContent(e.content)}));
-    console.log(mappedPosts);
+    const mappedPosts = posts.map((e) => ({
+        ...e,
+        content: shortenContent(e.content),
+    }));
 
-    const content = mappedPosts.map(e => {
+    const content = mappedPosts.map((e) => {
         return (
             <section key={e.id} className={styles['post-section']}>
                 <div className={styles['img-wrapper']}>
@@ -38,16 +47,15 @@ const Blog = () => {
                     <Link to={`/post-details/${e.id}`}>Read the post</Link>
                 </article>
             </section>
-        )
-    })
+        );
+    });
 
-    
-
-    return ( 
-        <>
-           {content}
+    return (
+        <>  
+            
+            {isLoading ? <Loading/> : content}
         </>
-    )
-}
+    );
+};
 
 export default Blog;

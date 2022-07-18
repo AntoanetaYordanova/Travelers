@@ -1,5 +1,9 @@
 @import '../../shared/css/general.scss';
 
+.wrapper {
+    min-height: 90vh;
+}
+
 .post-section {
  display: flex;
  justify-content: space-around;

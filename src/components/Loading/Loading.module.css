@@ -1,0 +1,29 @@
+.page-wrapper {
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 15%;
+}
+
+.page-wrapper div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: baseline;
+  position: relative;
+}
+
+.page-wrapper div h1 {
+  color: #FFC107;
+}
+
+.page-wrapper div .spinner {
+  position: absolute;
+  right: -32px;
+  top: 15px;
+}
+/*# sourceMappingURL=Loading.module.css.map */

@@ -1,0 +1,22 @@
+.page-wrapper{
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 15%;
+
+    div {
+        display: flex;
+        justify-items: baseline;
+        position: relative;
+
+        h1 {
+            color: #FFC107;
+        }
+
+        .spinner {
+            position: absolute;
+            right:-32px;
+            top: 15px;
+        }
+    }
+}
