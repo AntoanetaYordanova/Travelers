@@ -3,6 +3,7 @@
   background: #EAF0FC;
   padding: 11% 20%;
   min-height: 90vh;
+  padding: 7%;
 }
 
 .form-wrapper form {
@@ -96,4 +97,32 @@
 .form-wrapper form p a {
   color: #F9C807;
 }
-/*# sourceMappingURL=Login.module.css.map */
+
+.form-wrapper button.post-form-button {
+  font-size: 1.3rem;
+}
+
+.confirmation-msg {
+  background: #EAF0FC;
+  font-size: 2rem;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #252e48;
+  padding: 1%;
+  position: absolute;
+  -webkit-transition: opacity 0.6s;
+  transition: opacity 0.6s;
+  opacity: 1;
+}
+
+.hide-msg {
+  background: #EAF0FC;
+  font-size: 2rem;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #252e48;
+  padding: 1%;
+  position: absolute;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  opacity: 0;
+}
+/*# sourceMappingURL=Edit.module.css.map */

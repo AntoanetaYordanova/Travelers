@@ -11,11 +11,12 @@ import Logout from './components/Logout/Logout';
 import Blog from './components/Blog/Blog';
 import Footer from './components/Footer/Footer';
 import Details from './components/Details/Details';
+import MyProfile from './components/MyProfile/MyProfile';
 
 import { AuthProvider } from './contexts/authContext';
+import Edit from './components/Edit/Edit';
 
 //TODO: Guards
-
 
 function App() {
     return (
@@ -33,6 +34,8 @@ function App() {
                         <Route path="/logout" element={<Logout />} />
                         <Route path="/blog" element={<Blog />} />
                         <Route path="/post-details/:id" element={<Details />} />
+                        <Route path="/post-edit/:id" element={<Edit />} />
+                        <Route path='/my-profile' element={<MyProfile/>}/>
                     </Routes>
                 </main>
                 <Footer/>

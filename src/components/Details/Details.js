@@ -1,5 +1,5 @@
 import Loading from '../Loading/Loading';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import * as postService from '../../services/postService';
 import { useEffect, useState } from 'react';
 import styles from './Details.module.css';
@@ -117,9 +117,9 @@ const Details = () => {
 
     const authorSection = (
         <div>
-            <a href="" className={styles['action-link']}>
+            <Link to={`/post-edit/${id}`} className={styles['action-link']}>
                 Edit
-            </a>
+            </Link>
             <a href="" className={styles['action-link']} onClick={deleteBtnHandler}>
                 Delete
             </a>

@@ -2,6 +2,7 @@
 .post-section {
   font-size: 1.1rem;
   width: 85%;
+  min-height: 90vh;
   margin: 20px auto;
   text-align: center;
   background: #EAF0FC;

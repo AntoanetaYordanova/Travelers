@@ -32,7 +32,7 @@
 
 .form-wrapper form p.error {
   position: absolute;
-  bottom: 0;
+  bottom: -11px;
   color: #ed3030;
   font-size: 1rem;
 }
