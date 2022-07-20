@@ -8,8 +8,10 @@ import Loading from '../Loading/Loading';
 const Blog = () => {
     const [isLoading, setIsLodading] = useState(false);
     const [posts, setPosts] = useState([]);
+
     useEffect(() => {
         try {
+
             setIsLodading(true);
             postService.getAll().then((res) => {
                 const data = res.docs.map((doc) => ({

@@ -64,7 +64,7 @@ const CreatePost = () => {
                     destination : inputValues.destination,
                     imageUrl: inputValues.image,
                     ownerId: user.id,
-                    creator: user.username,
+                    creator: user.email,
                 });
                 setShowMsg(!showMsg);
 

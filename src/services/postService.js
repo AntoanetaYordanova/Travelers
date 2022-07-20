@@ -12,10 +12,6 @@ const getById = async (id) => {
     return getDoc(currentPost);
 }
 
-const getByCounty = async (country) => {
-   const myQuery = query(postCollection, where('destination', 'in', 'Morocco'));
-   return getDocs(myQuery);
-}
 
 const create = async (data) => {
     return addDoc(postCollection, data);
@@ -36,6 +32,5 @@ export {
     getById,
     create,
     update,
-    deletePost,
-    getByCounty
+    deletePost
 }

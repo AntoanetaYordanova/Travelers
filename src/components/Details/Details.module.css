@@ -23,12 +23,103 @@
   cursor: pointer;
 }
 
-.post-section .post-actions-section .heart-img-wrapper {
-  width: 20px;
+.post-section .post-actions-section .likes-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.post-section .post-actions-section .heart-img-wrapper img {
+.post-section .post-actions-section .likes-section .heart-img-wrapper {
+  width: 20px;
+  margin-left: 10px;
+}
+
+.post-section .post-actions-section .likes-section .heart-img-wrapper img {
   width: 100%;
+}
+
+.post-section .post-actions-section .owner-action-section {
+  position: relative;
+}
+
+.post-section .post-actions-section .owner-action-section .action-link {
+  margin: 0 10px;
+  border: 1px solid;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.post-section .post-actions-section .owner-action-section .action-link:nth-child(1) {
+  color: #0e8a0e;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.post-section .post-actions-section .owner-action-section .action-link:nth-child(1):hover {
+  background: #0e8a0e;
+  color: #fff;
+}
+
+.post-section .post-actions-section .owner-action-section .action-link:nth-child(2) {
+  color: #ec2f2f;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.post-section .post-actions-section .owner-action-section .action-link:nth-child(2):hover {
+  background: #ec2f2f;
+  color: #fff;
+}
+
+.post-section .post-actions-section .owner-action-section .confirmSection {
+  position: absolute;
+  top: -105px;
+  right: -65px;
+  width: 360px;
+  border: 1px solid #e8ba02;
+  border-radius: 6px;
+  padding: 5px;
+  background: rgba(249, 200, 7, 0.5);
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.post-section .post-actions-section .owner-action-section .confirmSection button {
+  margin: 0 10px;
+  border: 1px solid #0d6efd;
+  padding: 0 10px;
+  border-radius: 6px;
+  color: #0d6efd;
+}
+
+.post-section .post-actions-section .owner-action-section .confirmSection div {
+  margin-top: 5px;
+}
+
+.post-section .post-actions-section .owner-action-section .hideConfirmSection {
+  position: absolute;
+  top: -105px;
+  right: -65px;
+  width: 360px;
+  border: 1px solid #e8ba02;
+  border-radius: 6px;
+  padding: 5px;
+  background: rgba(249, 200, 7, 0.5);
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.post-section .post-actions-section .owner-action-section .hideConfirmSection button {
+  margin: 0 10px;
+  border: 1px solid #0d6efd;
+  padding: 0 10px;
+  border-radius: 6px;
+  color: #0d6efd;
+}
+
+.post-section .post-actions-section .owner-action-section .hideConfirmSection div {
+  margin-top: 5px;
 }
 
 .post-section .img-wrapper {
@@ -44,5 +135,13 @@
 
 .post-section h2 {
   font-size: 3.2rem;
+}
+
+.post-section .source-link {
+  margin: 0 5px;
+}
+
+.action-link:hover, .source-link:hover {
+  color: #e8ba02;
 }
 /*# sourceMappingURL=Details.module.css.map */

@@ -18,15 +18,98 @@
             cursor: pointer;
         }
 
-        .heart-img-wrapper{
-            width: 20px;
-            img {
-                width: 100%;
+        .likes-section {
+            display: flex;
+            .heart-img-wrapper{
+                width: 20px;
+                img {
+                    width: 100%;
+                }
+                margin-left: 10px;
             }
         }
+        .owner-action-section {
+            position: relative;
+
+            .action-link {
+                margin: 0 10px;
+                border: 1px solid;
+                padding: 10px 20px;
+                border-radius: 8px;
+            }
+
+            .action-link:nth-child(1){
+                color: rgb(14, 138, 14);
+                transition: 0.3s;
+            }
+            
+            .action-link:nth-child(1):hover{
+                background: rgb(14, 138, 14);
+                color: #fff;
+            }
+
+            .action-link:nth-child(2){
+                color: rgb(236, 47, 47);
+                transition: 0.3s;
+            }
+            
+            .action-link:nth-child(2):hover{
+                background: rgb(236, 47, 47);
+                color: #fff;
+            }
+
+            .confirmSection {
+                position: absolute;
+                top: -105px;
+                right: -65px;
+                width: 360px;
+                border: 1px solid $accent-yellow-color-dark;
+                border-radius: 6px;
+                padding: 5px;
+                background: rgba($color: #F9C807 , $alpha: 0.5);
+                transition: opacity 0.5s;
+                button{
+                    margin: 0 10px;
+                    border: 1px solid #0d6efd;
+                    padding: 0 10px;
+                    border-radius: 6px;
+                    color: #0d6efd;
+                }
+
+                div{
+                    margin-top: 5px;
+                }
+
+            }
+    
+            .hideConfirmSection {
+                position: absolute;
+                top: -105px;
+                right: -65px;
+                width: 360px;
+                border: 1px solid $accent-yellow-color-dark;
+                border-radius: 6px;
+                padding: 5px;
+                background: rgba($color: #F9C807 , $alpha: 0.5);
+                transition: opacity 0.5s;
+                opacity: 0;
+
+                button{
+                    margin: 0 10px;
+                    border: 1px solid #0d6efd;
+                    padding: 0 10px;
+                    border-radius: 6px;
+                    color: #0d6efd;
+                }
+
+                div{
+                    margin-top: 5px;
+                }
+            }
+        }
+        
     }
    
-
     .img-wrapper {
         width: 70%;
         margin: 30px auto;
@@ -40,5 +123,12 @@
     h2 {
         font-size: 3.2rem;
     }
+
+    .source-link{
+        margin: 0 5px;
+    }
 }
 
+.action-link:hover, .source-link:hover {
+    color: $accent-yellow-color-dark;
+}

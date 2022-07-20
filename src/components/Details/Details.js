@@ -5,19 +5,22 @@ import { useEffect, useState } from 'react';
 import styles from './Details.module.css';
 import * as likesService from '../../services/likesService';
 import { useAuthContext } from '../../contexts/authContext';
-import { async } from '@firebase/util';
+import { useNavigate } from 'react-router-dom';
+
+//TODO: add fontawsome icons to delete and edti buttons
 
 const Details = () => {
+    const navigate = useNavigate();
     const { user, isAuthenticated } = useAuthContext();
     const { id } = useParams();
     const [postData, setPostData] = useState({});
     const [isLoading, setIsLodading] = useState(true);
-    const [userPostData, setUserPostData] = useState({
+    const [userLikesData, setUserLikesData] = useState({
         hasLiked: false,
-        isOwner: false,
         likeId: '',
     });
     const [likes, setLikes] = useState(0);
+    const [ confirmSectionClassName, setConfirmSectionClassName ] = useState('hideConfirmSection');
 
     const heartImg = '/images/heart-img.svg';
     const heartLikedImg = '/images/heart-img-liked.svg';
@@ -28,7 +31,7 @@ const Details = () => {
         } catch (err) {
             console.log(err);
         }
-    }, [userPostData.hasLiked]);
+    }, [userLikesData.hasLiked]);
 
     useEffect(() => {
         try {
@@ -45,11 +48,11 @@ const Details = () => {
             });
             setLikes(likes.length);
             const hasLiked = likes.some((e) => e.ownerId == user.id);
-            setUserPostData((oldState) => ({ ...oldState, hasLiked }));
+            setUserLikesData((oldState) => ({ ...oldState, hasLiked }));
 
             if (hasLiked) {
                 const like = likes.find((l) => l.ownerId == user.id);
-                setUserPostData((oldState) => ({
+                setUserLikesData((oldState) => ({
                     ...oldState,
                     likeId: like.id,
                 }));
@@ -60,25 +63,21 @@ const Details = () => {
     function fetchPostData() {
         postService.getById(id).then((res) => {
             setPostData({ ...res.data(), id: res.id });
-            setUserPostData((oldState) => ({
-                ...oldState,
-                isOwner: postData.ownerId === user.id,
-            }));
             setIsLodading(false);
         });
     }
 
     const likeHandler = async () => {
         try {
-            if (!userPostData.hasLiked) {
+            if (!userLikesData.hasLiked) {
                 likesService.create({ ownerId: user.id, postId: id });
-                setUserPostData((oldState) => ({
+                setUserLikesData((oldState) => ({
                     ...oldState,
                     hasLiked: true,
                 }));
             } else {
-                likesService.deleteLike(userPostData.likeId);
-                setUserPostData((oldState) => ({
+                likesService.deleteLike(userLikesData.likeId);
+                setUserLikesData((oldState) => ({
                     ...oldState,
                     hasLiked: false,
                 }));
@@ -88,16 +87,28 @@ const Details = () => {
         }
     };
 
+    const deleteBtnHandler = (ev) => {
+        ev.preventDefault();
+        setConfirmSectionClassName('confirmSection');
+    }
+
+    const yesBtnHandler = async () => {
+        try {
+           await postService.deletePost(id);
+           navigate('/blog');
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    const noBtnHandler = () => {
+        setConfirmSectionClassName('hideConfirmSection')
+    }
+
     const likeSection = (
-        <a
-            title={
-                userPostData.hasLiked
-                    ? 'Click to take like back'
-                    : 'Click to like'
-            }
-        >
+        <a title={userLikesData.hasLiked ? 'Give a like' : 'Take like back'}>
             <img
-                src={userPostData.hasLiked ? heartLikedImg : heartImg}
+                src={userLikesData.hasLiked ? heartLikedImg : heartImg}
                 alt="like"
                 onClick={likeHandler}
             />
@@ -106,12 +117,14 @@ const Details = () => {
 
     const authorSection = (
         <div>
-            <a href="">Edit</a>
-            <a href="">Delete</a>
+            <a href="" className={styles['action-link']}>
+                Edit
+            </a>
+            <a href="" className={styles['action-link']} onClick={deleteBtnHandler}>
+                Delete
+            </a>
         </div>
     );
-
-    console.log(userPostData);
 
     const post = (
         <section className={styles['post-section']}>
@@ -119,10 +132,21 @@ const Details = () => {
                 <div className={styles['likes-section']}>
                     <p>Likes: {likes} </p>
                     <div className={styles['heart-img-wrapper']}>
-                        {(isAuthenticated && !userPostData.isOwner) ? likeSection : null}
+                        {isAuthenticated && !(postData.ownerId == user.id)
+                            ? likeSection
+                            : null}
                     </div>
                 </div>
-                {userPostData.isOwner ? authorSection : null}
+                <div className={styles['owner-action-section']}>
+                    <article className={styles[confirmSectionClassName]}>
+                        Are you sure you want to delete this post?
+                        <div>
+                            <button onClick={yesBtnHandler}>Yes</button>
+                            <button onClick={noBtnHandler}>No</button>
+                        </div>
+                    </article>
+                    {postData.ownerId == user.id ? authorSection : null}
+                </div>
             </section>
             <div className={styles['img-wrapper']}>
                 <img
@@ -136,14 +160,15 @@ const Details = () => {
                 <h5>Author: {postData.creator}</h5>
                 {postData.source ? (
                     <p>
-                        Read{' '}
+                        Read
                         <a
                             href={postData.source}
                             target="_blank"
                             rel="noreferrer noopener"
+                            className={styles['source-link']}
                         >
                             here
-                        </a>{' '}
+                        </a>
                         the full article
                     </p>
                 ) : null}

@@ -15,10 +15,6 @@ const Regitser = () => {
             message : '',
             valid : true
         },
-        username:  {
-            message : '',
-            valid : true
-        },
         password:  {
             message : '',
             valid : true
@@ -29,7 +25,6 @@ const Regitser = () => {
         },
     });
     const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [repass, setRepass] = useState('');
 
@@ -37,7 +32,6 @@ const Regitser = () => {
         ev.preventDefault();
 
         emailValidator();
-        usernameValidator();
         passwordValidator();
         repassValidator();
 
@@ -75,18 +69,6 @@ const Regitser = () => {
         } else {
             setErrors(oldState => {
                 return {...oldState,  email : {message : '', valid : true}}
-            })
-        }
-    };
-
-    const usernameValidator = () => {
-        if(username == '') {
-            setErrors(oldState => {
-                return {...oldState, username : {message : 'Username is required', valid : false}};
-            })
-        } else {
-            setErrors(oldState => {
-                return {...oldState, username : {message : '', valid : true}};
             })
         }
     };
@@ -129,10 +111,6 @@ const Regitser = () => {
         setEmail(currentValue);
     };
 
-    const usernameChangeHandler = (e) => {
-        const currentValue = (e.target.value).trim();
-        setUsername(currentValue);
-    };
 
     const passwordChangeHandler = (e) => {
         const currentValue = (e.target.value).trim();
@@ -171,20 +149,6 @@ const Regitser = () => {
                     />
                     <p className={!errors.email.valid ? styles.error : styles.hidden}>
                         {errors.email.message}
-                    </p>
-                </div>
-                <div>
-                    <input
-                        className={!errors.username.valid ? styles['error-input'] : ''}
-                        type="text"
-                        name="username"
-                        id="username"
-                        placeholder="Username"
-                        onBlur={usernameValidator}
-                        onChange={usernameChangeHandler}
-                    />
-                    <p className={!errors.username.valid ? styles.error : styles.hidden}>
-                        {errors.username.message}
                     </p>
                 </div>
                 <div>
