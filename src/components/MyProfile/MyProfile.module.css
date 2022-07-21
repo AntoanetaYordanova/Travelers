@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap");
+.page-wrapper {
+  min-height: 90vh;
+  width: 80%;
+  margin: 50px auto;
+  padding: 2%;
+  background: #EAF0FC;
+  border-radius: 8px;
+}
+
+.page-wrapper header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.page-wrapper header .user-info-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page-wrapper header .user-info-section .img-wrapper {
+  border: 2px solid #e8ba02;
+  border-radius: 50%;
+  width: 94px;
+  height: 94px;
+  position: relative;
+}
+
+.page-wrapper header .user-info-section .img-wrapper svg {
+  position: absolute;
+  left: 10px;
+}
+/*# sourceMappingURL=MyProfile.module.css.map */

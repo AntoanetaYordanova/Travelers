@@ -1,5 +1,5 @@
 import { db } from "../config/firebaseConfig";
-import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc, getDoc } from "firebase/firestore";
+import { collection, getDocs, addDoc, updateDoc, doc, deleteDoc, getDoc, query, where } from "firebase/firestore";
 
 const postCollection = collection(db, 'post');
 
@@ -10,6 +10,11 @@ const getAll = async () => {
 const getById = async (id) => {
     const currentPost = doc(db, 'post', id);
     return getDoc(currentPost);
+}
+
+const getUserPosts = async(id) => {
+    const myQuery = query(postCollection, where('ownerId', '==', id));
+    return getDocs(myQuery);
 }
 
 
@@ -30,6 +35,7 @@ const deletePost = async (id) => {
 export {
     getAll,
     getById,
+    getUserPosts,
     create,
     update,
     deletePost

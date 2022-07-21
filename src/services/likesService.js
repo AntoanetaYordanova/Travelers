@@ -17,8 +17,14 @@ const getPostLikes = (id) => {
     return getDocs(myQuery);
 }
 
+const getUsersLikes = (id) => {
+    const myQuery = query(likesCollection, where('ownerId', '==', id));
+    return getDocs(myQuery);
+}
+
 export {
     create,
     deleteLike,
-    getPostLikes
+    getPostLikes,
+    getUsersLikes
 }

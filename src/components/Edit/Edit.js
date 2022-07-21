@@ -4,17 +4,19 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import styles from './Edit.module.css';
 import { useParams } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 const Edit = () => {
+    const [isLoading, setIsLoading] = useState(true);
     const [showMsg, setShowMsg] = useState(false);
-    
+
     useEffect(() => {
-        if(showMsg) {
+        if (showMsg) {
             setTimeout(() => {
-                setShowMsg(false)
+                setShowMsg(false);
             }, 3000);
         }
-    }, [showMsg])
+    }, [showMsg]);
 
     const { user } = useAuthContext();
     const imageUrlRegEx = /^https?:\/\//;
@@ -23,22 +25,23 @@ const Edit = () => {
         title: '',
         destination: '',
         content: '',
-        image: ''
+        image: '',
     });
 
-    const {id} = useParams();
-    
-    useEffect(() => {
-        postService.getById(id)
-        .then(res => {
-            const postData = res.data()
-            setInputValues({...postData, image: postData.imageUrl});
-        })
-        .catch(err => {
-            console.log(err);
-        }) 
-    }, [showMsg]);
+    const { id } = useParams();
 
+    useEffect(() => {
+        postService
+            .getById(id)
+            .then((res) => {
+                const postData = res.data();
+                setInputValues({ ...postData, image: postData.imageUrl });
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, [showMsg]);
 
     const errorsInitialState = {
         title: {
@@ -60,11 +63,10 @@ const Edit = () => {
     };
     const [errors, setErrors] = useState(errorsInitialState);
 
-
     const editPostHandler = async (ev) => {
         ev.preventDefault();
 
-        titleValidator( );
+        titleValidator();
         contentValidator();
         destinationValidator();
         imageValidator();
@@ -72,16 +74,15 @@ const Edit = () => {
         if (!hasErrors()) {
             try {
                 const newPostData = {
-                    title : inputValues.title,
-                    content : inputValues.content,
-                    destination : inputValues.destination,
+                    title: inputValues.title,
+                    content: inputValues.content,
+                    destination: inputValues.destination,
                     imageUrl: inputValues.image,
                     ownerId: user.id,
                     creator: user.email,
-                }
+                };
                 await postService.update(id, newPostData);
                 setShowMsg(!showMsg);
-
             } catch (err) {
                 console.log(err);
             }
@@ -90,23 +91,23 @@ const Edit = () => {
 
     const titleInputOnChange = (ev) => {
         const value = ev.target.value;
-        setInputValues(oldState => ({...oldState, title : value}));
-    }
+        setInputValues((oldState) => ({ ...oldState, title: value }));
+    };
 
     const contentInputOnChange = (ev) => {
         const value = ev.target.value;
-        setInputValues(oldState => ({...oldState, content : value}));
-    }
+        setInputValues((oldState) => ({ ...oldState, content: value }));
+    };
 
     const destinationInputOnChange = (ev) => {
         const value = ev.target.value;
-        setInputValues(oldState => ({...oldState, destination : value}));
-    }
+        setInputValues((oldState) => ({ ...oldState, destination: value }));
+    };
 
     const imageInputOnChange = (ev) => {
         const value = ev.target.value;
-        setInputValues(oldState => ({...oldState, image : value}));
-    }
+        setInputValues((oldState) => ({ ...oldState, image: value }));
+    };
 
     const titleValidator = () => {
         const title = inputValues.title;
@@ -206,122 +207,134 @@ const Edit = () => {
 
     return (
         <>
-            <h4
-                className={
-                    showMsg ? styles['confirmation-msg'] : styles['hide-msg']
-                }
-            >
-                Post edited
-            </h4>
-            <section className={styles['form-wrapper']}>
-                <form
-                    method="POST"
-                    onSubmit={editPostHandler}
-                    className={styles['form-style']}
-                >
-                    <h3>Edit Post</h3>
-                    <div>
-                        <input
-                            type="text"
-                            name="title"
-                            placeholder="Title"
-                            value={inputValues.title}
-                            onChange={titleInputOnChange}
-                            id="title"
-                            onBlur={titleValidator}
-                            className={
-                                !errors.title.valid ? styles['error-input'] : ''
-                            }
-                        />
-                        <p
-                            className={
-                                !errors.title.valid
-                                    ? styles.error
-                                    : styles.hidden
-                            }
+            {isLoading ? (
+                <Loading />
+            ) : (
+                <>
+                    <h4
+                        className={
+                            showMsg
+                                ? styles['confirmation-msg']
+                                : styles['hide-msg']
+                        }
+                    >
+                        Post edited
+                    </h4>
+                    <section className={styles['form-wrapper']}>
+                        <form
+                            method="POST"
+                            onSubmit={editPostHandler}
+                            className={styles['form-style']}
                         >
-                            {errors.title.message}
-                        </p>
-                    </div>
-                    <div>
-                        <textarea
-                            type=""
-                            name="content"
-                            placeholder="Content"
-                            value={inputValues.content}
-                            onChange={contentInputOnChange}
-                            id="content"
-                            rows="10"
-                            onBlur={contentValidator}
-                            className={
-                                !errors.content.valid
-                                    ? styles['error-input']
-                                    : ''
-                            }
-                        />
-                        <p
-                            className={
-                                !errors.content.valid
-                                    ? styles.error
-                                    : styles.hidden
-                            }
-                        >
-                            {errors.content.message}
-                        </p>
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            name="destination"
-                            placeholder="Destination country"
-                            value={inputValues.destination}
-                            onChange={destinationInputOnChange}
-                            id="destination"
-                            onBlur={destinationValidator}
-                            className={
-                                !errors.destination.valid
-                                    ? styles['error-input']
-                                    : ''
-                            }
-                        />
-                        <p
-                            className={
-                                !errors.destination.valid
-                                    ? styles.error
-                                    : styles.hidden
-                            }
-                        >
-                            {errors.destination.message}
-                        </p>
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            name="image"
-                            id="image"
-                            placeholder="Image url"
-                            value={inputValues.image}
-                            onChange={imageInputOnChange}
-                            onBlur={imageValidator}
-                            className={
-                                !errors.image.valid ? styles['error-input'] : ''
-                            }
-                        />
-                        <p
-                            className={
-                                !errors.image.valid
-                                    ? styles.error
-                                    : styles.hidden
-                            }
-                        >
-                            {errors.image.message}
-                        </p>
-                    </div>
-                    <button className={styles['post-form-button']}>
-                        Edit
-                    </button>
-                </form>
-            </section>
+                            <h3>Edit Post</h3>
+                            <div>
+                                <input
+                                    type="text"
+                                    name="title"
+                                    placeholder="Title"
+                                    value={inputValues.title}
+                                    onChange={titleInputOnChange}
+                                    id="title"
+                                    onBlur={titleValidator}
+                                    className={
+                                        !errors.title.valid
+                                            ? styles['error-input']
+                                            : ''
+                                    }
+                                />
+                                <p
+                                    className={
+                                        !errors.title.valid
+                                            ? styles.error
+                                            : styles.hidden
+                                    }
+                                >
+                                    {errors.title.message}
+                                </p>
+                            </div>
+                            <div>
+                                <textarea
+                                    type=""
+                                    name="content"
+                                    placeholder="Content"
+                                    value={inputValues.content}
+                                    onChange={contentInputOnChange}
+                                    id="content"
+                                    rows="10"
+                                    onBlur={contentValidator}
+                                    className={
+                                        !errors.content.valid
+                                            ? styles['error-input']
+                                            : ''
+                                    }
+                                />
+                                <p
+                                    className={
+                                        !errors.content.valid
+                                            ? styles.error
+                                            : styles.hidden
+                                    }
+                                >
+                                    {errors.content.message}
+                                </p>
+                            </div>
+                            <div>
+                                <input
+                                    type="text"
+                                    name="destination"
+                                    placeholder="Destination country"
+                                    value={inputValues.destination}
+                                    onChange={destinationInputOnChange}
+                                    id="destination"
+                                    onBlur={destinationValidator}
+                                    className={
+                                        !errors.destination.valid
+                                            ? styles['error-input']
+                                            : ''
+                                    }
+                                />
+                                <p
+                                    className={
+                                        !errors.destination.valid
+                                            ? styles.error
+                                            : styles.hidden
+                                    }
+                                >
+                                    {errors.destination.message}
+                                </p>
+                            </div>
+                            <div>
+                                <input
+                                    type="text"
+                                    name="image"
+                                    id="image"
+                                    placeholder="Image url"
+                                    value={inputValues.image}
+                                    onChange={imageInputOnChange}
+                                    onBlur={imageValidator}
+                                    className={
+                                        !errors.image.valid
+                                            ? styles['error-input']
+                                            : ''
+                                    }
+                                />
+                                <p
+                                    className={
+                                        !errors.image.valid
+                                            ? styles.error
+                                            : styles.hidden
+                                    }
+                                >
+                                    {errors.image.message}
+                                </p>
+                            </div>
+                            <button className={styles['post-form-button']}>
+                                Edit
+                            </button>
+                        </form>
+                    </section>
+                </>
+            )}
         </>
     );
 };

@@ -1,0 +1,32 @@
+@import '../../shared/css/general.scss';
+
+.page-wrapper {
+    min-height: 90vh;
+    width: 80%;
+    margin: 50px auto;
+    padding: 2%;
+    background: $base-color-dark;
+    border-radius: 8px;
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .user-info-section {
+            display: flex;
+            align-items: center;
+
+            .img-wrapper {
+                border: 2px solid $accent-yellow-color-dark;
+                border-radius: 50%;
+                width: 94px;
+                height: 94px;
+                position: relative;
+                svg{
+                    position: absolute;
+                    left: 10px;
+                }
+            }    
+        }
+    }
+}
