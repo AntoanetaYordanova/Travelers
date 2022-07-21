@@ -106,7 +106,7 @@ const Details = () => {
     }
 
     const likeSection = (
-        <a title={userLikesData.hasLiked ? 'Give a like' : 'Take like back'}>
+        <a title={userLikesData.hasLiked ? 'Take like back' : 'Give a like'}>
             <img
                 src={userLikesData.hasLiked ? heartLikedImg : heartImg}
                 alt="like"

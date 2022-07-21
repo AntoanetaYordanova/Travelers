@@ -9,9 +9,17 @@ import LikedPostsView from './LikedPostsView/LikedPostsView';
 const MyProfile = () => {
     const { user } = useAuthContext();
     const userImg = (
-        <FontAwesomeIcon icon={faUser} size={'5x'} color={'#e8ba02'} />
+        <FontAwesomeIcon icon={faUser} size={'4x'} color={'#e8ba02'} />
     );
     const [pageView, setPageView] = useState('ownPosts');
+
+    const showOwnPostsHandler = () => {
+        setPageView('ownPosts');
+    }
+
+    const showLikedPostsHandler = () => {
+        setPageView('likedPosts');
+    }
 
     return (
         <div className={styles['page-wrapper']}>
@@ -24,14 +32,14 @@ const MyProfile = () => {
                         <h3>{user.email}</h3>
                     </div>
                 </section>
-                <section>
-                    <button>Your posts</button>
-                    <button>Liked posts</button>
+                <section className={styles['buttons-section']}>
+                    <button className={pageView == 'ownPosts' ? styles.active : styles['not-active']} onClick={showOwnPostsHandler}>Your posts</button>
+                    <button className={pageView == 'ownPosts' ? styles['not-active'] : styles.active} onClick={showLikedPostsHandler}>Liked posts</button>
                 </section>
             </header>
-            <section>
+            <section className={styles['main-section']}>
                 <h2>{pageView == 'ownPosts' ? 'Your posts' : 'Liked posts'}</h2>
-                <section>
+                <section className={styles['posts-section']}>
                     {pageView == 'ownPosts' ? (
                         <OwnPostsView />
                     ) : (

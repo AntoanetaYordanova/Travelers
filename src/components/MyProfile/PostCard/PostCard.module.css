@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap");
+.card {
+  border: 1px solid #e8ba02;
+  border-radius: 10px;
+  width: 350px;
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+
+.card .img-wrapper {
+  height: 230px;
+  position: relative;
+}
+
+.card .img-wrapper img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.card .img-wrapper a {
+  position: absolute;
+  top: 80px;
+  left: 115px;
+  font-size: 3rem;
+  color: #000;
+  opacity: 0;
+}
+
+.card .img-wrapper a:hover {
+  color: #3a3838;
+}
+
+.card .img-wrapper:hover a {
+  opacity: 1;
+}
+
+.card .img-wrapper:hover img {
+  opacity: 0.5;
+}
+
+.card h3 {
+  text-align: center;
+  height: 28%;
+}
+
+.card .buttons-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.card .buttons-section .action-link {
+  margin: 0 10px;
+  border: 1px solid;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.card .buttons-section .action-link:nth-child(1) {
+  color: #0e8a0e;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.card .buttons-section .action-link:nth-child(1):hover {
+  background: #0e8a0e;
+  color: #fff;
+}
+
+.card .buttons-section .action-link:nth-child(2) {
+  color: #ec2f2f;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.card .buttons-section .action-link:nth-child(2):hover {
+  background: #ec2f2f;
+  color: #fff;
+}
+
+.card .confirmSection {
+  position: absolute;
+  top: 55px;
+  right: -65px;
+  width: 360px;
+  border: 1px solid #e8ba02;
+  border-radius: 6px;
+  padding: 5px;
+  background: rgba(249, 200, 7, 0.5);
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.card .confirmSection button {
+  margin: 0 10px;
+  border: 1px solid #0d6efd;
+  padding: 0 10px;
+  border-radius: 6px;
+  color: #0d6efd;
+}
+
+.card .confirmSection div {
+  margin-top: 5px;
+}
+
+.card .hideConfirmSection {
+  position: absolute;
+  top: 55px;
+  right: -65px;
+  width: 360px;
+  border: 1px solid #e8ba02;
+  border-radius: 6px;
+  padding: 5px;
+  background: rgba(249, 200, 7, 0.5);
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.card .hideConfirmSection button {
+  margin: 0 10px;
+  border: 1px solid #0d6efd;
+  padding: 0 10px;
+  border-radius: 6px;
+  color: #0d6efd;
+}
+
+.card .hideConfirmSection div {
+  margin-top: 5px;
+}
+/*# sourceMappingURL=PostCard.module.css.map */
