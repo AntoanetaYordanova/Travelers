@@ -211,7 +211,14 @@ const Edit = () => {
                 <Loading />
             ) : (
                 <>
-                    <h4
+                    
+                    <section className={styles['form-wrapper']}>
+                        <form
+                            method="POST"
+                            onSubmit={editPostHandler}
+                            className={styles['form-style']}
+                        >
+                            <h4
                         className={
                             showMsg
                                 ? styles['confirmation-msg']
@@ -220,12 +227,6 @@ const Edit = () => {
                     >
                         Post edited
                     </h4>
-                    <section className={styles['form-wrapper']}>
-                        <form
-                            method="POST"
-                            onSubmit={editPostHandler}
-                            className={styles['form-style']}
-                        >
                             <h3>Edit Post</h3>
                             <div>
                                 <input

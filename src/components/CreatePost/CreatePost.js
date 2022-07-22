@@ -8,22 +8,22 @@ const CreatePost = () => {
     const [showMsg, setShowMsg] = useState(false);
 
     useEffect(() => {
-        if(showMsg) {
+        if (showMsg) {
             setTimeout(() => {
-                setShowMsg(false)
+                setShowMsg(false);
             }, 3000);
         }
-    }, [showMsg])
+    }, [showMsg]);
 
     const { user } = useAuthContext();
     const imageUrlRegEx = /^https?:\/\//;
 
     const formInititalState = {
-        title : '',
+        title: '',
         content: '',
         destination: '',
-        image : ''
-    }
+        image: '',
+    };
 
     const [inputValues, setInputValues] = useState(formInititalState);
 
@@ -47,11 +47,10 @@ const CreatePost = () => {
     };
     const [errors, setErrors] = useState(errorsInitialState);
 
-
     const createPostHandler = async (ev) => {
         ev.preventDefault();
 
-        titleValidator( );
+        titleValidator();
         contentValidator();
         destinationValidator();
         imageValidator();
@@ -59,9 +58,9 @@ const CreatePost = () => {
         if (!hasErrors()) {
             try {
                 await postService.create({
-                    title : inputValues.title,
-                    content : inputValues.content,
-                    destination : inputValues.destination,
+                    title: inputValues.title,
+                    content: inputValues.content,
+                    destination: inputValues.destination,
                     imageUrl: inputValues.image,
                     ownerId: user.id,
                     creator: user.email,
@@ -77,23 +76,23 @@ const CreatePost = () => {
 
     const titleInputOnChange = (ev) => {
         const value = ev.target.value;
-        setInputValues(oldState => ({...oldState, title : value}));
-    }
+        setInputValues((oldState) => ({ ...oldState, title: value }));
+    };
 
     const contentInputOnChange = (ev) => {
         const value = ev.target.value;
-        setInputValues(oldState => ({...oldState, content : value}));
-    }
+        setInputValues((oldState) => ({ ...oldState, content: value }));
+    };
 
     const destinationInputOnChange = (ev) => {
         const value = ev.target.value;
-        setInputValues(oldState => ({...oldState, destination : value}));
-    }
+        setInputValues((oldState) => ({ ...oldState, destination: value }));
+    };
 
     const imageInputOnChange = (ev) => {
         const value = ev.target.value;
-        setInputValues(oldState => ({...oldState, image : value}));
-    }
+        setInputValues((oldState) => ({ ...oldState, image: value }));
+    };
 
     const titleValidator = () => {
         const title = inputValues.title;
@@ -193,19 +192,21 @@ const CreatePost = () => {
 
     return (
         <>
-            <h4
-                className={
-                    showMsg ? styles['confirmation-msg'] : styles['hide-msg']
-                }
-            >
-                Post created
-            </h4>
             <section className={styles['form-wrapper']}>
                 <form
                     method="POST"
                     onSubmit={createPostHandler}
                     className={styles['form-style']}
                 >
+                    <h4
+                        className={
+                            showMsg
+                                ? styles['confirmation-msg']
+                                : styles['hide-msg']
+                        }
+                    >
+                        Post created
+                    </h4>
                     <h3>Create Post</h3>
                     <div>
                         <input

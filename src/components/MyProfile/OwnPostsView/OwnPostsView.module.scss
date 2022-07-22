@@ -1,5 +1,16 @@
+@import '../../../shared/css/general.scss';
+
 .posts-section {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    justify-items: center;
+}
+
+.no-results {
+    text-align: center;
+    margin-top: 100px;
+    a {
+        color: $accent-yellow-color-dark;
+    }
 }

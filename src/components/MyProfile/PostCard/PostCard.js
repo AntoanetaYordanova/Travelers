@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import * as postService from '../../../services/postService';
 
-const PostCard = ({ postData, reRender }) => {
+const PostCard = ({ postData, reRender, view }) => {
     const [ confirmSectionClassName, setConfirmSectionClassName ] = useState('hideConfirmSection');
 
     const deleteBtnHandler = (ev) => {
@@ -24,16 +24,9 @@ const PostCard = ({ postData, reRender }) => {
         setConfirmSectionClassName('hideConfirmSection')
     }
 
-    return (
-        <section className={styles.card}>
-            <div className={styles['img-wrapper']}>
-                <img src={postData.imageUrl} alt="" />
-                <div className={styles['link-wrapper']}>
-                    <Link to={`/post-details/${postData.id}`}>Read</Link>
-                </div>
-            </div>
-            <h3>{postData.title}</h3>
-            <section className={styles['buttons-section']}>
+    const ownViewButtons = (
+        <>
+        <section className={styles['buttons-section']}>
                 <Link
                     to={`/post-edit/${postData.id}`}
                     className={styles['action-link']}
@@ -54,7 +47,21 @@ const PostCard = ({ postData, reRender }) => {
                             <button onClick={noBtnHandler}>No</button>
                         </div>
                     </article>
-            </section>
+            </section></>
+    )
+
+    
+
+    return (
+        <section className={styles.card}>
+            <div className={styles['img-wrapper']}>
+                <img src={postData.imageUrl} alt="" />
+                <div className={styles['link-wrapper']}>
+                    <Link to={`/post-details/${postData.id}`}>Read</Link>
+                </div>
+            </div>
+            <h3>{postData.title}</h3>
+            {view == 'own' ? ownViewButtons : null}
         </section>
     );
 };

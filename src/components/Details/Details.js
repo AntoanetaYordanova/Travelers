@@ -62,8 +62,8 @@ const Details = () => {
 
     function fetchPostData() {
         postService.getById(id).then((res) => {
-            setPostData({ ...res.data(), id: res.id });
-            setIsLodading(false);
+        setPostData({ ...res.data(), id: res.id });
+        setIsLodading(false);
         });
     }
 

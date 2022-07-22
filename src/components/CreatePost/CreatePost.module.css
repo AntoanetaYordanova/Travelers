@@ -102,8 +102,11 @@
   font-size: 1.3rem;
 }
 
+.form-wrapper form {
+  position: relative;
+}
+
 .confirmation-msg {
-  background: #EAF0FC;
   font-size: 2rem;
   font-family: "Noto Sans KR", sans-serif;
   color: #252e48;
@@ -112,6 +115,8 @@
   -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
   opacity: 1;
+  left: 0;
+  top: 0;
 }
 
 .hide-msg {
@@ -124,5 +129,7 @@
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
   opacity: 0;
+  left: 0;
+  top: 0;
 }
 /*# sourceMappingURL=CreatePost.module.css.map */

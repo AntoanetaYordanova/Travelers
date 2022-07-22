@@ -2,13 +2,20 @@
 .card {
   border: 1px solid #e8ba02;
   border-radius: 10px;
-  width: 350px;
+  width: 400px;
   margin-top: 20px;
   padding-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .card .img-wrapper {
-  height: 230px;
+  height: 250px;
   position: relative;
 }
 
@@ -21,7 +28,7 @@
 .card .img-wrapper a {
   position: absolute;
   top: 80px;
-  left: 115px;
+  left: 135px;
   font-size: 3rem;
   color: #000;
   opacity: 0;
@@ -83,11 +90,29 @@
   color: #fff;
 }
 
+.card .remove-like-button {
+  width: 70%;
+  padding: 5px 10px;
+  margin: 0 auto;
+  color: #ec2f2f;
+  border: 1px solid #ec2f2f;
+  border-radius: 25px;
+  background: #f7f9fb;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.card .remove-like-button:hover {
+  background: #ec2f2f;
+  color: #fff;
+}
+
 .card .confirmSection {
   position: absolute;
+  z-index: 3;
   top: 55px;
   right: -65px;
-  width: 360px;
+  width: 325px;
   border: 1px solid #e8ba02;
   border-radius: 6px;
   padding: 5px;
@@ -110,9 +135,10 @@
 
 .card .hideConfirmSection {
   position: absolute;
+  z-index: 3;
   top: 55px;
   right: -65px;
-  width: 360px;
+  width: 325px;
   border: 1px solid #e8ba02;
   border-radius: 6px;
   padding: 5px;

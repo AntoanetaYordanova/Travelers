@@ -1,5 +1,5 @@
 import { db } from "../config/firebaseConfig";
-import { collection, getDocs, addDoc, doc, deleteDoc, getDoc, query, where } from "firebase/firestore";
+import { collection, getDocs, addDoc, doc, deleteDoc, query, where } from "firebase/firestore";
 
 const likesCollection = collection(db, 'likes');
 

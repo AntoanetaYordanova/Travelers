@@ -42,10 +42,11 @@ const Regitser = () => {
                     id : newUser.user.uid,
                     email : newUser.user.email,
                     token : newUser.user.accessToken,
-                    username: newUser.user.username
+                    username: newUser.user.username,
+                    myPageView : 'own'
                    }
                    login(userInfo);
-                   navigate('/');
+                   navigate('/blog');
             } catch (err) {
                 console.log(err.message);
                 if(err.message === 'Firebase: Error (auth/email-already-in-use).') {

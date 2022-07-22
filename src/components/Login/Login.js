@@ -30,10 +30,11 @@ const Login = () => {
                 id: newUser.user.uid,
                 email: newUser.user.email,
                 token: newUser.user.accessToken,
-                username: newUser.user.username
+                username: newUser.user.username,
+                myPageView : 'own'
             };
             login(userInfo);
-            navigate('/');
+            navigate('/blog');
         } catch (err) {
             if (err.message === 'Firebase: Error (auth/user-not-found).') {
                 setErrors((oldState) => {

@@ -3,11 +3,13 @@
 .card {
     border: 1px solid $accent-yellow-color-dark;
     border-radius: 10px;
-    width: 350px;
+    width: 400px;
     margin-top: 20px;
     padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
     .img-wrapper {
-        height: 230px;
+        height: 250px;
         position: relative; 
 
         img {
@@ -19,7 +21,7 @@
         a {
             position: absolute;
             top: 80px;
-            left: 115px;
+            left: 135px;
             font-size: 3rem;
             color: #000;
             opacity: 0;
@@ -52,11 +54,28 @@
         margin-bottom: 10px;
     }
 
+    .remove-like-button {
+        width: 70%;
+        padding: 5px 10px;
+        margin: 0 auto;
+        color: rgb(236, 47, 47);
+        border: 1px solid rgb(236, 47, 47);
+        border-radius: 25px;
+        background: $base-color-light;
+        transition: 0.3s;
+    }
+
+    .remove-like-button:hover {
+        background: rgb(236, 47, 47);
+        color: #fff;
+    }
+
     .confirmSection {
         position: absolute;
+        z-index: 3;
         top: 55px;
         right: -65px;
-        width: 360px;
+        width: 325px;
         border: 1px solid $accent-yellow-color-dark;
         border-radius: 6px;
         padding: 5px;
@@ -78,9 +97,10 @@
 
     .hideConfirmSection {
         position: absolute;
+        z-index: 3;
         top: 55px;
         right: -65px;
-        width: 360px;
+        width: 325px;
         border: 1px solid $accent-yellow-color-dark;
         border-radius: 6px;
         padding: 5px;

@@ -1,10 +1,11 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useContext } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 
 const initialState = {
     email : '',
     id : '',
-    token : ''
+    token : '',
+    myPageView : 'own'
 }
 
 const AuthContext = createContext();
@@ -20,8 +21,12 @@ export const AuthProvider = ({children}) => {
         setUser(initialState);
     }
 
+    const setUserPageView = (data) => {
+        setUser(data);
+    }
+
     return (
-        <AuthContext.Provider value={{user, login, logout, isAuthenticated : !!user.email}}>
+        <AuthContext.Provider value={{user, login, logout, setUserPageView, isAuthenticated : !!user.email}}>
             {children}
         </AuthContext.Provider>
     )

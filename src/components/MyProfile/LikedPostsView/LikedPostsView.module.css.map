@@ -2,9 +2,9 @@
     "version": 3,
     "mappings": "ACAA,OAAO,CAAC,+IAAI;ADEZ,AAAA,cAAc,CAAC;EACX,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,WAAW;EAClC,KAAK,EAAE,IAAI;EACX,aAAa,EAAE,MAAM;CACxB;;AAED,AAAA,WAAW,CAAC;EACR,UAAU,EAAE,MAAM;EAClB,UAAU,EAAE,KAAK;CAIpB;;AAND,AAGI,WAHO,CAGP,CAAC,CAAC;EACE,KAAK,ECNc,OAAO;CDO7B",
     "sources": [
-        "OwnPostsView.module.scss",
+        "LikedPostsView.module.scss",
         "../../../shared/css/general.scss"
     ],
     "names": [],
-    "file": "OwnPostsView.module.css"
+    "file": "LikedPostsView.module.css"
 }
