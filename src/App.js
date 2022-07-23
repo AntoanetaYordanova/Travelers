@@ -12,6 +12,7 @@ import Blog from './components/Blog/Blog';
 import Footer from './components/Footer/Footer';
 import Details from './components/Details/Details';
 import MyProfile from './components/MyProfile/MyProfile';
+import Guard from './shared/Guard/Guard';
 
 import { AuthProvider } from './contexts/authContext';
 import Edit from './components/Edit/Edit';
@@ -28,17 +29,24 @@ function App() {
                 <main>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/post" element={<CreatePost />} />
-                        <Route path="/register" element={<Regitser />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/logout" element={<Logout />} />
+                        <Route element={<Guard doesNeedAuth={false} />}>
+                            <Route path="/register" element={<Regitser />} />
+                            <Route path="/login" element={<Login />} />
+                        </Route>
                         <Route path="/blog" element={<Blog />} />
-                        <Route path="/post-details/:id" element={<Details />} />
-                        <Route path="/post-edit/:id" element={<Edit />} />
-                        <Route path='/my-profile' element={<MyProfile/>}/>
+                        <Route element={<Guard doesNeedAuth={true}/>}>
+                            <Route
+                                path="/post-details/:id"
+                                element={<Details />}
+                            />
+                            <Route path="/post" element={<CreatePost />} />
+                            <Route path="/post-edit/:id" element={<Edit />} />
+                            <Route path="/my-profile" element={<MyProfile />} />
+                            <Route path="/logout" element={<Logout />} />
+                        </Route>
                     </Routes>
                 </main>
-                <Footer/>
+                <Footer />
             </div>
         </AuthProvider>
     );
