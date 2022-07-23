@@ -8,6 +8,10 @@ body, *, ::before, ::after {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+body {
+  height: 100%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

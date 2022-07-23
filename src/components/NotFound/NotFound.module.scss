@@ -1,0 +1,30 @@
+@import '../../shared/css/general.scss';
+
+.not-found-wrapper {
+    display: flex;
+    justify-content: center;
+    background: $base-color-dark;
+    height: 100vh;
+    padding-top: 12%;
+
+    h1, h2, p {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 13rem;
+        color: $accent-yellow-color-dark;
+    }
+
+    h2 {
+        font-size: 2.6rem;
+    }
+
+    p, a {
+        font-size: 1.6rem;
+    }
+
+    a {
+        color: $accent-yellow-color-dark;
+    }
+}

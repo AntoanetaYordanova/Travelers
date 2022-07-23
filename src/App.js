@@ -13,6 +13,8 @@ import Footer from './components/Footer/Footer';
 import Details from './components/Details/Details';
 import MyProfile from './components/MyProfile/MyProfile';
 import Guard from './shared/Guard/Guard';
+import NotFound from './components/NotFound/NotFound';
+import styles from './App.module.css';
 
 import { AuthProvider } from './contexts/authContext';
 import Edit from './components/Edit/Edit';
@@ -22,7 +24,7 @@ import Edit from './components/Edit/Edit';
 function App() {
     return (
         <AuthProvider>
-            <div className="App">
+            <div className={styles.App}>
                 <header>
                     <Nav />
                 </header>
@@ -44,6 +46,7 @@ function App() {
                             <Route path="/my-profile" element={<MyProfile />} />
                             <Route path="/logout" element={<Logout />} />
                         </Route>
+                        <Route path='*' element={<NotFound/>}/>
                     </Routes>
                 </main>
                 <Footer />
