@@ -5,13 +5,14 @@ import Loading from '../../Loading/Loading';
 import PostCard from '../PostCard/PostCard';
 import styles from './OwnPostsView.module.css';
 import { Link } from 'react-router-dom';
+import Error from '../../Error/Error';
 
-const OwnPostsView = () => {
+const OwnPostsView = ({catchedErrorHandler}) => {
     const { user } = useAuthContext();
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLodading] = useState(true);
     const [ count, setCount ] = useState(0);
-    
+
     const reRender = () => {
         setCount(count + 1);
     }
@@ -27,7 +28,10 @@ const OwnPostsView = () => {
                 setPosts(data);
                 setIsLodading(false);
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                catchedErrorHandler();
+                console.log(err);
+            });
     }, [count]);
 
     const postsRenderEl = posts.map(e => <PostCard key={e.id} postData={e} reRender = {reRender} view={'own'} />);

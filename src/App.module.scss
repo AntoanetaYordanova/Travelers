@@ -4,6 +4,9 @@
     font-family: $body-font;
 }
 
+.header {
+    border-bottom: 2px solid $base-color-dark;
+}
 
 main {
     background: $base-color-light;

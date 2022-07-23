@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as authService from '../../services/auth';
 import { useAuthContext } from '../../contexts/authContext';
+import Error from '../Error/Error';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Login = () => {
         hasErrors: false,
     };
     const [errors, setErrors] = useState(initialErrorState);
+    const [hasCatchedError, setHasCatchedError] = useState(false);
 
     const loginHandler = async (ev) => {
         ev.preventDefault();
@@ -64,6 +66,8 @@ const Login = () => {
                         email: 'Wrong email or password',
                     };
                 });
+            } else {
+                setHasCatchedError(true);
             }
             console.log(err);
         }
@@ -73,7 +77,7 @@ const Login = () => {
         setErrors(initialErrorState);
     };
 
-    return (
+    const form = (
         <section className={styles['form-wrapper']}>
             <form className={styles.form} method="POST" onSubmit={loginHandler}>
                 <h3>Login</h3>
@@ -113,6 +117,10 @@ const Login = () => {
                 </p>
             </form>
         </section>
+    )
+
+    return (
+       <> {hasCatchedError ? <Error/> : form} </>
     );
 };
 

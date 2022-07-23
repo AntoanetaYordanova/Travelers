@@ -1,9 +1,13 @@
 @import '../../shared/css/general.scss';
 
+.outher{
+    padding: 50px 0;
+}
+
 .page-wrapper {
-    min-height: 90vh;
+    min-height: 100vh;
     width: 80%;
-    margin: 50px auto;
+    margin: auto;
     padding: 2%;
     background: $base-color-dark;
     border-radius: 8px;

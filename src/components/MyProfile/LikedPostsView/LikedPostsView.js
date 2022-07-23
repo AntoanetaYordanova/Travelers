@@ -7,7 +7,7 @@ import PostCard from '../PostCard/PostCard';
 import styles from './LikedPostsView.module.css';
 import { Link } from 'react-router-dom';
 
-const LikedPostsView = () => {
+const LikedPostsView = ({catchedErrorHandler}) => {
     const { user } = useAuthContext();
     const [userLikes, setUserLikes] = useState([]);
     const [userLikedPosts, setUserLikedPosts] = useState([]);
@@ -28,7 +28,10 @@ const LikedPostsView = () => {
                 const data = res.docs.map((doc) => doc.data().postId);
                 setUserLikes(data);
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+                console.log(err);
+                catchedErrorHandler();
+            });
     }, []);
 
     useEffect(() => {
@@ -43,7 +46,10 @@ const LikedPostsView = () => {
                         return newArr;
                     });
                 })
-                .catch((err) => console.log(err));
+                .catch((err) => {
+                    console.log(err);
+                    catchedErrorHandler();
+                });
 
             if (i == userLikes.length - 1) {
                 setIsLodading(false);

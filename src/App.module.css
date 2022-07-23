@@ -3,6 +3,10 @@
   font-family: "Noto Sans KR", sans-serif;
 }
 
+.header {
+  border-bottom: 2px solid #EAF0FC;
+}
+
 main {
   background: #f7f9fb;
   position: relative;

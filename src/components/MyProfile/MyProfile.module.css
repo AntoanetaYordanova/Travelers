@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap");
+.outher {
+  padding: 50px 0;
+}
+
 .page-wrapper {
-  min-height: 90vh;
+  min-height: 100vh;
   width: 80%;
-  margin: 50px auto;
+  margin: auto;
   padding: 2%;
   background: #EAF0FC;
   border-radius: 8px;

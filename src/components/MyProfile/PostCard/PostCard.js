@@ -2,7 +2,7 @@ import styles from './PostCard.module.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import * as postService from '../../../services/postService';
-import EditButton from '../../../shared/Components/Guard/EditButton/EditButton';
+import EditButton from '../../../shared/Components/EditButton/EditButton';
 import DeleteButton from '../../../shared/Components/DeleteButton/DeleteButton';
 
 const PostCard = ({ postData, reRender, view }) => {

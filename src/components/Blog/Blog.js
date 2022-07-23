@@ -4,10 +4,12 @@ import * as postService from '../../services/postService';
 import styles from './Blog.module.css';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 
 const Blog = () => {
     const [isLoading, setIsLodading] = useState(false);
     const [posts, setPosts] = useState([]);
+    const [hasCatchedError, setHasCatchedError] = useState(false);
 
     useEffect(() => {
         try {
@@ -22,6 +24,7 @@ const Blog = () => {
                 setIsLodading(false);
             });
         } catch (err) {
+            setHasCatchedError(true);
             console.log(err);
         }
     }, []);
@@ -55,7 +58,7 @@ const Blog = () => {
     return (
         <>  
             
-            {isLoading ? <Loading/> : content}
+            {isLoading ? <Loading/> : (hasCatchedError ? <Error/> : content)}
         </>
     );
 };

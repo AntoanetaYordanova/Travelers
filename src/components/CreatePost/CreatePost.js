@@ -3,9 +3,11 @@ import { useAuthContext } from '../../contexts/authContext';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import styles from './CreatePost.module.css';
+import Error from '../Error/Error';
 
 const CreatePost = () => {
     const [showMsg, setShowMsg] = useState(false);
+    const [hasCatchedError, setHasCatchedError] = useState(false);
 
     useEffect(() => {
         if (showMsg) {
@@ -69,6 +71,7 @@ const CreatePost = () => {
 
                 setInputValues(formInititalState);
             } catch (err) {
+                setHasCatchedError(true);
                 console.log(err);
             }
         }
@@ -196,9 +199,8 @@ const CreatePost = () => {
         return true;
     }
 
-    return (
-        <>
-            <section className={styles['form-wrapper']}>
+    const view = (
+        <section className={styles['form-wrapper']}>
                 <form
                     method="POST"
                     onSubmit={createPostHandler}
@@ -316,6 +318,11 @@ const CreatePost = () => {
                     </button>
                 </form>
             </section>
+        )
+
+    return (
+        <>
+            {hasCatchedError ? <Error/> : view}
         </>
     );
 };

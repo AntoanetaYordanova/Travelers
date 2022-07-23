@@ -4,6 +4,7 @@ import { useAuthContext } from '../../contexts/authContext';
 import * as authService from '../../services/auth';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import Error from '../Error/Error';
 
 const Regitser = () => {
     const navigate = useNavigate();
@@ -24,6 +25,7 @@ const Regitser = () => {
             valid : true
         },
     });
+    const [hasCathedError, setHasCatchedError] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repass, setRepass] = useState('');
@@ -56,6 +58,8 @@ const Regitser = () => {
                     setErrors(oldState => {
                         return {...oldState, email : {message : 'Please enter a valid email', valid : false}}
                     })
+                } else {
+                    setHasCatchedError(true);
                 }
             }
         }
@@ -129,7 +133,7 @@ const Regitser = () => {
         return true;
     }
 
-    return (
+    const form = (
         <section className={styles['form-wrapper']}>
             <form
                 className={styles.form}
@@ -189,6 +193,10 @@ const Regitser = () => {
                 </p>
             </form>
         </section>
+    )
+
+    return (
+        <>{hasCathedError ? <Error/> : form}</>
     );
 };
 

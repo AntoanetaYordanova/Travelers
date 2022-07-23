@@ -6,8 +6,9 @@ import styles from './Details.module.css';
 import * as likesService from '../../services/likesService';
 import { useAuthContext } from '../../contexts/authContext';
 import { useNavigate } from 'react-router-dom';
-import EditButton from '../../shared/Components/Guard/EditButton/EditButton';
+import EditButton from '../../shared/Components/EditButton/EditButton';
 import DeleteButton from '../../shared/Components/DeleteButton/DeleteButton';
+import Error from '../Error/Error';
 
 const Details = () => {
 
@@ -22,6 +23,7 @@ const Details = () => {
     });
     const [likes, setLikes] = useState(0);
     const [ confirmSectionClassName, setConfirmSectionClassName ] = useState('hideConfirmSection');
+    const [ hasCatchedError, setHasCatchedError ] = useState(false);
 
     const heartImg = '/images/heart-img.svg';
     const heartLikedImg = '/images/heart-img-liked.svg';
@@ -29,7 +31,9 @@ const Details = () => {
     useEffect(() => {
         try {
             fetchLikesData();
-        } catch (err) {
+        } 
+        catch (err) {
+            setHasCatchedError(true);
             console.log(err);
         }
     }, [userLikesData.hasLiked]);
@@ -38,6 +42,7 @@ const Details = () => {
         try {
             fetchPostData();
         } catch (err) {
+            setHasCatchedError(true);
             console.log(err);
         }
     }, []);
@@ -173,7 +178,7 @@ const Details = () => {
         </section>
     );
 
-    return <div>{isLoading ? <Loading /> : post}</div>;
+    return <div>{isLoading ? <Loading /> : (hasCatchedError ? <Error/> : post)}</div>;
 };
 
 export default Details;

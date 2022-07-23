@@ -23,30 +23,39 @@ function App() {
     return (
         <AuthProvider>
             <div className={styles.App}>
-                <header>
+                <header className={styles.header}>
                     <Nav />
                 </header>
-                <main>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route element={<Guard doesNeedAuth={false} />}>
-                            <Route path="/register" element={<Regitser />} />
-                            <Route path="/login" element={<Login />} />
-                        </Route>
-                        <Route path="/blog" element={<Blog />} />
-                        <Route element={<Guard doesNeedAuth={true}/>}>
-                            <Route
-                                path="/post-details/:id"
-                                element={<Details />}
-                            />
-                            <Route path="/post" element={<CreatePost />} />
-                            <Route path="/post-edit/:id" element={<Edit />} />
-                            <Route path="/my-profile" element={<MyProfile />} />
-                            <Route path="/logout" element={<Logout />} />
-                        </Route>
-                        <Route path='*' element={<NotFound/>}/>
-                    </Routes>
-                </main>
+                    <main>
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route element={<Guard doesNeedAuth={false} />}>
+                                <Route
+                                    path="/register"
+                                    element={<Regitser />}
+                                />
+                                <Route path="/login" element={<Login />} />
+                            </Route>
+                            <Route path="/blog" element={<Blog />} />
+                            <Route element={<Guard doesNeedAuth={true} />}>
+                                <Route
+                                    path="/post-details/:id"
+                                    element={<Details />}
+                                />
+                                <Route path="/post" element={<CreatePost />} />
+                                <Route
+                                    path="/post-edit/:id"
+                                    element={<Edit />}
+                                />
+                                <Route
+                                    path="/my-profile"
+                                    element={<MyProfile />}
+                                />
+                                <Route path="/logout" element={<Logout />} />
+                            </Route>
+                            <Route path="*" element={<NotFound />} />
+                        </Routes>
+                    </main>
                 <Footer />
             </div>
         </AuthProvider>
