@@ -42,7 +42,6 @@ const Regitser = () => {
                     id : newUser.user.uid,
                     email : newUser.user.email,
                     token : newUser.user.accessToken,
-                    username: newUser.user.username,
                     myPageView : 'own'
                    }
                    login(userInfo);
@@ -124,9 +123,9 @@ const Regitser = () => {
     };
 
     function hasErrors() {
-        if(errors.email.valid && errors.password.valid && errors.repass.valid && errors.username.valid) {
+        if(errors.email.valid && errors.password.valid && errors.repass.valid) {
             return false;
-        }
+        } 
         return true;
     }
 

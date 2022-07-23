@@ -184,10 +184,12 @@ const CreatePost = () => {
             errors.destination.valid &&
             errors.image.valid
         ) {
-            return false;
+            return true;
+        } else if(inputValues.content == '' || inputValues.destination == '' || inputValues.image == '' || inputValues.title == ''){
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     return (

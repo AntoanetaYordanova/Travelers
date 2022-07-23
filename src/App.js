@@ -19,8 +19,6 @@ import styles from './App.module.css';
 import { AuthProvider } from './contexts/authContext';
 import Edit from './components/Edit/Edit';
 
-//TODO: Guards
-
 function App() {
     return (
         <AuthProvider>

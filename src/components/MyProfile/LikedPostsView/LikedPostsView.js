@@ -7,8 +7,6 @@ import PostCard from '../PostCard/PostCard';
 import styles from './LikedPostsView.module.css';
 import { Link } from 'react-router-dom';
 
-//TODO: don't have liked posts yet
-
 const LikedPostsView = () => {
     const { user } = useAuthContext();
     const [userLikes, setUserLikes] = useState([]);

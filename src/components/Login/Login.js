@@ -30,25 +30,39 @@ const Login = () => {
                 id: newUser.user.uid,
                 email: newUser.user.email,
                 token: newUser.user.accessToken,
-                username: newUser.user.username,
-                myPageView : 'own'
+                myPageView: 'own',
             };
             login(userInfo);
             navigate('/blog');
         } catch (err) {
-            if (err.message === 'Firebase: Error (auth/user-not-found).') {
+            if (
+                err.message === 'Firebase: Error (auth/user-not-found).' 
+                
+            ) {
                 setErrors((oldState) => {
                     return {
                         ...oldState,
                         email: 'There is no user with this email',
                     };
                 });
-            } else if(
+            }  else if(err.message === 'Firebase: Error (auth/invalid-email).') {
+                setErrors((oldState) => {
+                    return {
+                        ...oldState,
+                        email: 'Invalid email',
+                    };
+                });
+            }
+            else if (
                 err.message === 'Firebase: Error (auth/wrong-password).' ||
                 err.message === 'Firebase: Error (auth/internal-error).'
             ) {
                 setErrors((oldState) => {
-                    return { ...oldState, password: 'Wrong password' };
+                    return {
+                        ...oldState,
+                        password: 'Wrong email or password',
+                        email: 'Wrong email or password',
+                    };
                 });
             }
             console.log(err);
@@ -57,37 +71,41 @@ const Login = () => {
 
     const inputOnBlurHandler = () => {
         setErrors(initialErrorState);
-    }
+    };
 
     return (
         <section className={styles['form-wrapper']}>
             <form className={styles.form} method="POST" onSubmit={loginHandler}>
                 <h3>Login</h3>
                 <div>
-                <input
-                    type="text"
-                    name="email"
-                    id="email"
-                    placeholder="Email"
-                    className={errors.email ? styles['error-input'] : ''}
-                    onBlur={inputOnBlurHandler}
-                />
-                <p className={errors.email ? styles.error : styles.hidden}>
-                    {errors.email}
-                </p>
+                    <input
+                        type="text"
+                        name="email"
+                        id="email"
+                        placeholder="Email"
+                        className={errors.email ? styles['error-input'] : ''}
+                        onBlur={inputOnBlurHandler}
+                    />
+                    <p className={errors.email ? styles.error : styles.hidden}>
+                        {errors.email}
+                    </p>
                 </div>
                 <div>
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Password"
-                    className={errors.password ? styles['error-input'] : ''}
-                    onBlur={inputOnBlurHandler}
-                />
-                <p className={errors.password ? styles.error : styles.hidden}>
-                    {errors.password}
-                </p>
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Password"
+                        className={errors.password ? styles['error-input'] : ''}
+                        onBlur={inputOnBlurHandler}
+                    />
+                    <p
+                        className={
+                            errors.password ? styles.error : styles.hidden
+                        }
+                    >
+                        {errors.password}
+                    </p>
                 </div>
                 <button>Log In</button>
                 <p>
