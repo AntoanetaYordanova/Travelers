@@ -179,17 +179,21 @@ const CreatePost = () => {
 
     function hasErrors() {
         if (
+            inputValues.content == '' ||
+            inputValues.destination == '' ||
+            inputValues.image == '' ||
+            inputValues.title == ''
+        ) {
+            return true;
+        } else if (
             errors.title.valid &&
             errors.content.valid &&
             errors.destination.valid &&
             errors.image.valid
         ) {
-            return true;
-        } else if(inputValues.content == '' || inputValues.destination == '' || inputValues.image == '' || inputValues.title == ''){
-            return true;
+            return false;
         }
-
-        return false;
+        return true;
     }
 
     return (

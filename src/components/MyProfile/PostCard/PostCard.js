@@ -2,55 +2,46 @@ import styles from './PostCard.module.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import * as postService from '../../../services/postService';
+import EditButton from '../../../shared/Components/Guard/EditButton/EditButton';
+import DeleteButton from '../../../shared/Components/DeleteButton/DeleteButton';
 
 const PostCard = ({ postData, reRender, view }) => {
-    const [ confirmSectionClassName, setConfirmSectionClassName ] = useState('hideConfirmSection');
+    const [confirmSectionClassName, setConfirmSectionClassName] =
+        useState('hideConfirmSection');
 
     const deleteBtnHandler = (ev) => {
         ev.preventDefault();
         setConfirmSectionClassName('confirmSection');
-    }
+    };
 
     const yesBtnHandler = async () => {
         try {
-           await postService.deletePost(postData.id);
-           reRender();
+            await postService.deletePost(postData.id);
+            reRender();
         } catch (err) {
             console.log(err);
         }
-    }
+    };
 
     const noBtnHandler = () => {
-        setConfirmSectionClassName('hideConfirmSection')
-    }
+        setConfirmSectionClassName('hideConfirmSection');
+    };
 
     const ownViewButtons = (
         <>
-        <section className={styles['buttons-section']}>
-                <Link
-                    to={`/post-edit/${postData.id}`}
-                    className={styles['action-link']}
-                >
-                    Edit
-                </Link>
-                <a
-                    href=""
-                    className={styles['action-link']}
-                    onClick={deleteBtnHandler}
-                >
-                    Delete
-                </a>
+            <section className={styles['buttons-section']}>
+                <EditButton id={postData.id}/>
+                <DeleteButton deleteBtnHandler={deleteBtnHandler}/>
                 <article className={styles[confirmSectionClassName]}>
-                        Are you sure you want to delete this post?
-                        <div>
-                            <button onClick={yesBtnHandler}>Yes</button>
-                            <button onClick={noBtnHandler}>No</button>
-                        </div>
-                    </article>
-            </section></>
-    )
-
-    
+                    Are you sure you want to delete this post?
+                    <div>
+                        <button onClick={yesBtnHandler}>Yes</button>
+                        <button onClick={noBtnHandler}>No</button>
+                    </div>
+                </article>
+            </section>
+        </>
+    );
 
     return (
         <section className={styles.card}>

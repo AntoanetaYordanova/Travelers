@@ -31,7 +31,10 @@
         }
         .owner-action-section {
             @include editDeleteBtns;
-            
+            position: relative;
+            svg {
+                margin-right: 5px;
+            }
             .confirmSection {
                 position: absolute;
                 top: -105px;

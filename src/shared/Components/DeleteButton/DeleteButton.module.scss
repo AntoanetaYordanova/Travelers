@@ -1,0 +1,5 @@
+@import '../../../css/general.scss';
+
+.action-link {
+    @include deleteBtn;
+}

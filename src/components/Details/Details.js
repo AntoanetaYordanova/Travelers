@@ -1,15 +1,16 @@
 import Loading from '../Loading/Loading';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import * as postService from '../../services/postService';
 import { useEffect, useState } from 'react';
 import styles from './Details.module.css';
 import * as likesService from '../../services/likesService';
 import { useAuthContext } from '../../contexts/authContext';
 import { useNavigate } from 'react-router-dom';
-
-//TODO: add fontawsome icons to delete and edti buttons
+import EditButton from '../../shared/Components/Guard/EditButton/EditButton';
+import DeleteButton from '../../shared/Components/DeleteButton/DeleteButton';
 
 const Details = () => {
+
     const navigate = useNavigate();
     const { user, isAuthenticated } = useAuthContext();
     const { id } = useParams();
@@ -117,12 +118,8 @@ const Details = () => {
 
     const authorSection = (
         <div>
-            <Link to={`/post-edit/${id}`} className={styles['action-link']}>
-                Edit
-            </Link>
-            <a href="" className={styles['action-link']} onClick={deleteBtnHandler}>
-                Delete
-            </a>
+            <EditButton id={id}/>
+            <DeleteButton deleteBtnHandler={deleteBtnHandler}/>
         </div>
     );
 

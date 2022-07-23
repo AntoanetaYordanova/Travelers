@@ -123,35 +123,37 @@ $post-body-font-size: 1.1rem;
     }
 }
 
-@mixin editDeleteBtns {
-        position: relative;
+@mixin editBtn {
+    @include editDeleteBtnGeneral;
+    color: rgb(14, 138, 14);
+    transition: 0.3s;
 
-        .action-link {
-            margin: 0 10px;
-            border: 1px solid;
-            padding: 10px 20px;
-            border-radius: 8px;
-        }
+    &:hover {
+        background: rgb(14, 138, 14);
+        color: #fff;
+    }
+}
 
-        .action-link:nth-child(1){
-            color: rgb(14, 138, 14);
-            transition: 0.3s;
-        }
-        
-        .action-link:nth-child(1):hover{
-            background: rgb(14, 138, 14);
-            color: #fff;
-        }
+@mixin deleteBtn {
+    @include editDeleteBtnGeneral;
 
-        .action-link:nth-child(2){
-            color: rgb(236, 47, 47);
-            transition: 0.3s;
-        }
-        
-        .action-link:nth-child(2):hover{
-            background: rgb(236, 47, 47);
-            color: #fff;
-        }
+    color: rgb(236, 47, 47);
+    transition: 0.3s;
 
-        
+    &:hover {
+        background: rgb(236, 47, 47);
+        color: #fff;
+    }
+} 
+
+@mixin editDeleteBtnGeneral {
+    margin: 0 10px;
+    border: 1px solid;
+    padding: 10px 20px;
+    border-radius: 8px;
+    
+
+    svg {
+        margin-right: 5px;
+    }       
 }

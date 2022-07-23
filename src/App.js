@@ -12,7 +12,7 @@ import Blog from './components/Blog/Blog';
 import Footer from './components/Footer/Footer';
 import Details from './components/Details/Details';
 import MyProfile from './components/MyProfile/MyProfile';
-import Guard from './shared/Guard/Guard';
+import Guard from './shared/Components/Guard/Guard';
 import NotFound from './components/NotFound/NotFound';
 import styles from './App.module.css';
 

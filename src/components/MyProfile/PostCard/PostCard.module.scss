@@ -50,8 +50,8 @@
     .buttons-section {
         display: flex; 
         justify-content: space-around;
-        @include editDeleteBtns;
         margin-bottom: 10px;
+        position: relative;
     }
 
     .remove-like-button {

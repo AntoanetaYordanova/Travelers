@@ -72,6 +72,10 @@
   color: #fff;
 }
 
+.post-section .post-actions-section .owner-action-section svg {
+  margin-right: 5px;
+}
+
 .post-section .post-actions-section .owner-action-section .confirmSection {
   position: absolute;
   top: -105px;

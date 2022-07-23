@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap");
+.action-link {
+  margin: 0 10px;
+  border: 1px solid;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #ec2f2f;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.action-link svg {
+  margin-right: 5px;
+}
+
+.action-link:hover {
+  background: #ec2f2f;
+  color: #fff;
+}
+/*# sourceMappingURL=DeleteButton.module.css.map */

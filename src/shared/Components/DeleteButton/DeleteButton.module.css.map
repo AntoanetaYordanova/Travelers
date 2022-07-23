@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,OAAO,CAAC,+IAAI;ADEZ,AAAA,YAAY,CAAC;ECmJT,MAAM,EAAE,MAAM;EACd,MAAM,EAAE,SAAS;EACjB,OAAO,EAAE,SAAS;EAClB,aAAa,EAAE,GAAG;EAblB,KAAK,EAAE,OAAgB;EACvB,UAAU,EAAE,IAAI;CDxInB;;AAFD,ACyJI,YDzJQ,CCyJR,GAAG,CAAC;EACA,YAAY,EAAE,GAAG;CACpB;;AD3JL,AC4II,YD5IQ,AC4IP,MAAM,CAAC;EACJ,UAAU,EAAE,OAAgB;EAC5B,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "DeleteButton.module.scss",
+        "../../../css/general.scss"
+    ],
+    "names": [],
+    "file": "DeleteButton.module.css"
+}

@@ -1,5 +1,5 @@
 import { Outlet, Navigate } from 'react-router-dom';
-import { useAuthContext } from '../../contexts/authContext';
+import { useAuthContext } from '../../../contexts/authContext';
 
 const Guard = ({doesNeedAuth}) => {
     const { isAuthenticated } = useAuthContext();
