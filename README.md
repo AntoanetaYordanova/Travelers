@@ -2,27 +2,27 @@
 
 Travelers is blog created with ReactJS.
 
-##Frontend
+## Frontend
 
 - ReactJS
 - SCSS
 - Bootstrap
 - Fontawsome
 
-##Backend
+## Backend
 
 -- Firebase Authentication
 -- Firebase Firestore Database
 
-##Features
+## Features
 
-###Not logged in users
+### Not logged in users
 
 - View homepage
 - View blog section
 - Read articles
 
-###Logged in users
+### Logged in users
 
 - Publish posts
 - Edit or remove already existing posts
