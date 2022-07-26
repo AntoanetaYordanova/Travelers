@@ -37,11 +37,11 @@ function App() {
                                 <Route path="/login" element={<Login />} />
                             </Route>
                             <Route path="/blog" element={<Blog />} />
-                            <Route element={<Guard doesNeedAuth={true} />}>
-                                <Route
+                            <Route
                                     path="/post-details/:id"
                                     element={<Details />}
-                                />
+                            />
+                            <Route element={<Guard doesNeedAuth={true} />}>
                                 <Route path="/post" element={<CreatePost />} />
                                 <Route
                                     path="/post-edit/:id"

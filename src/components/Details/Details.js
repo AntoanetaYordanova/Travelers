@@ -25,8 +25,8 @@ const Details = () => {
     const [ confirmSectionClassName, setConfirmSectionClassName ] = useState('hideConfirmSection');
     const [ hasCatchedError, setHasCatchedError ] = useState(false);
 
-    const heartImg = '/images/heart-img.svg';
-    const heartLikedImg = '/images/heart-img-liked.svg';
+    const heartImg = '/Travelers/images/heart-img.svg';
+    const heartLikedImg = './Travelers/images/heart-img-liked.svg';
 
     useEffect(() => {
         try {
