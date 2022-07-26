@@ -11,8 +11,8 @@ Travelers is blog created with ReactJS.
 
 ## Backend
 
--- Firebase Authentication
--- Firebase Firestore Database
+- Firebase Authentication
+- Firebase Firestore Database
 
 ## Features
 
