@@ -3,6 +3,12 @@
   padding: 50px 0;
 }
 
+@media screen and (max-width: 510px) {
+  .outher {
+    padding: 0;
+  }
+}
+
 .page-wrapper {
   min-height: 100vh;
   width: 80%;
@@ -49,6 +55,29 @@
   left: 9px;
 }
 
+@media screen and (max-width: 1750px) {
+  .page-wrapper header .user-info-section .img-wrapper {
+    width: 73px;
+    height: 73px;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .page-wrapper header .user-info-section .img-wrapper {
+    width: 68px;
+    height: 68px;
+  }
+  .page-wrapper header .user-info-section .img-wrapper svg {
+    left: 8px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .page-wrapper header .user-info-section {
+    margin-bottom: 10px;
+  }
+}
+
 .page-wrapper header .buttons-section button {
   border: 2px solid #e8ba02;
   padding: 10px 90px;
@@ -68,9 +97,55 @@
   margin-right: 30px;
 }
 
+@media screen and (max-width: 605px) {
+  .page-wrapper header .buttons-section button:nth-child(1) {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .page-wrapper header .buttons-section button {
+    padding: 10px 70px;
+  }
+}
+
+@media screen and (max-width: 605px) {
+  .page-wrapper header .buttons-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .page-wrapper header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .page-wrapper .main-section .page-heading {
   text-align: center;
   margin-top: 20px;
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 1750px) {
+  .page-wrapper {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .page-wrapper {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=MyProfile.module.css.map */

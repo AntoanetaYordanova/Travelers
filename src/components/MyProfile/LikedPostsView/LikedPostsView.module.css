@@ -8,6 +8,20 @@
   justify-items: center;
 }
 
+@media screen and (max-width: 1670px) {
+  .posts-section {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .posts-section {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
 .no-results {
   text-align: center;
   margin-top: 100px;

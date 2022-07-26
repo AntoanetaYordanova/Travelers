@@ -95,14 +95,16 @@
             border-radius: 6px;
         }
 
-       
-    }
-
-    @media screen and (max-width: 950px) {
-        .img-wrapper {
+        @media screen and (max-width: 950px) {
             width: 85%;
         }
+ 
+        @media screen and (max-width: 610px) {
+            width: 100%;
+        }
     }
+
+   
 
     h2 {
         font-size: 3.2rem;

@@ -104,6 +104,12 @@
   margin-top: 5px;
 }
 
+@media screen and (max-width: 610px) {
+  .card .confirmSection {
+    right: 35px;
+  }
+}
+
 .card .hideConfirmSection {
   position: absolute;
   z-index: 3;
@@ -129,5 +135,11 @@
 
 .card .hideConfirmSection div {
   margin-top: 5px;
+}
+
+@media screen and (max-width: 610px) {
+  .card .hideConfirmSection {
+    right: 35px;
+  }
 }
 /*# sourceMappingURL=PostCard.module.css.map */

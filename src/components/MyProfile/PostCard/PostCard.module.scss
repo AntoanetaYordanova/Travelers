@@ -93,6 +93,9 @@
             margin-top: 5px;
         }
 
+        @media screen and (max-width: 610px) {
+            right: 35px;
+        }
     }
 
     .hideConfirmSection {
@@ -118,6 +121,11 @@
 
         div{
             margin-top: 5px;
+        }
+
+        
+        @media screen and (max-width: 610px) {
+            right: 35px;
         }
     }
 }
