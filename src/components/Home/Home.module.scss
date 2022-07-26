@@ -19,6 +19,15 @@
    margin: 10% 0 10% 0;
    font-size: $hero-title-size;
    text-align: center;
+
+   @media screen and (max-width: 665px) {
+    font-size: 3rem;
+   }
+
+   @media screen and (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+   }
 }
 
 span.yellow-accent {

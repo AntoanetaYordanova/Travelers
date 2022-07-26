@@ -23,6 +23,24 @@
   text-align: center;
 }
 
+@media screen and (max-width: 665px) {
+  .heroh1 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heroh1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 span.yellow-accent {
   margin: 0 10px 0 10px;
   color: #e8ba02;

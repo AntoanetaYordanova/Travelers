@@ -29,3 +29,15 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Ibarra Real Nova', serif;
 }
+
+@media screen and (max-width: 1750px){
+    html {
+      font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 1500px){
+  html {
+    font-size: 14px;
+  }
+}

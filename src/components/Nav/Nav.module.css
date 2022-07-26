@@ -13,6 +13,15 @@ nav {
   padding: 20px 30px;
 }
 
+@media screen and (max-width: 700px) {
+  nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .nav-menu {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -33,6 +42,18 @@ nav {
 
 .nav-menu a:hover {
   color: #e8ba02;
+}
+
+@media screen and (max-width: 580px) {
+  .nav-menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 h2 {

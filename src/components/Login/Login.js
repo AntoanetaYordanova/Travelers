@@ -78,7 +78,8 @@ const Login = () => {
     };
 
     const form = (
-        <section className={styles['form-wrapper']}>
+        <div>
+            <section className={styles['form-wrapper']}>
             <form className={styles.form} method="POST" onSubmit={loginHandler}>
                 <h3>Login</h3>
                 <div>
@@ -117,6 +118,7 @@ const Login = () => {
                 </p>
             </form>
         </section>
+        </div>
     )
 
     return (

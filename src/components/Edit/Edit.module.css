@@ -2,7 +2,7 @@
 .form-wrapper {
   background: #EAF0FC;
   padding: 11% 20%;
-  min-height: 90vh;
+  min-height: 100vh;
   padding: 7%;
 }
 
@@ -96,6 +96,30 @@
 
 .form-wrapper form p a {
   color: #F9C807;
+}
+
+@media screen and (max-width: 1200px) {
+  .form-wrapper form {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .form-wrapper form {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .form-wrapper form {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .form-wrapper form {
+    width: 100%;
+  }
 }
 
 .form-wrapper button.post-form-button {

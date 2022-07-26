@@ -2,7 +2,7 @@
 .form-wrapper {
   background: #EAF0FC;
   padding: 11% 20%;
-  min-height: 90vh;
+  min-height: 100vh;
 }
 
 .form-wrapper form {
@@ -95,5 +95,47 @@
 
 .form-wrapper form p a {
   color: #F9C807;
+}
+
+@media screen and (max-width: 1200px) {
+  .form-wrapper form {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .form-wrapper form {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .form-wrapper form {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .form-wrapper form {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  div .form-wrapper {
+    padding: 7%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  div .form-wrapper {
+    padding: 4%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  div .form-wrapper form {
+    margin-top: 10%;
+  }
 }
 /*# sourceMappingURL=Register.module.css.map */

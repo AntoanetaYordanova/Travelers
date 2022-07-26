@@ -27,7 +27,7 @@ $post-body-font-size: 1.1rem;
 @mixin form-style {
     background: $base-color-dark;
     padding: 11% 20%;
-    min-height: 90vh;
+    min-height: 100vh;
 
     form {
         background: #f7f9fb;
@@ -110,6 +110,22 @@ $post-body-font-size: 1.1rem;
             a {
                 color: $accent-yellow-color-light;
             }
+        }
+
+        @media screen and (max-width: 1200px) {
+            width: 60%;
+        }
+
+        @media screen and (max-width: 950px) {
+            width: 75%;
+        }
+
+        @media screen and (max-width: 650px) {
+            width: 90%;
+        }
+
+        @media screen and (max-width: 450px) {
+            width: 100%;
         }
     }
 }

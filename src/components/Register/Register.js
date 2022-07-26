@@ -134,7 +134,8 @@ const Regitser = () => {
     }
 
     const form = (
-        <section className={styles['form-wrapper']}>
+       <div>
+         <section className={styles['form-wrapper']}>
             <form
                 className={styles.form}
                 method="POST"
@@ -193,6 +194,7 @@ const Regitser = () => {
                 </p>
             </form>
         </section>
+       </div>
     )
 
     return (

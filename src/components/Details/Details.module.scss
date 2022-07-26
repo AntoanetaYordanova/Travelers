@@ -30,7 +30,6 @@
             }
         }
         .owner-action-section {
-            @include editDeleteBtns;
             position: relative;
             svg {
                 margin-right: 5px;
@@ -94,6 +93,14 @@
             width: 100%;
             border: 3px solid $accent-yellow-color-dark;
             border-radius: 6px;
+        }
+
+       
+    }
+
+    @media screen and (max-width: 950px) {
+        .img-wrapper {
+            width: 85%;
         }
     }
 
