@@ -21,12 +21,12 @@ const LikedPostsView = ({catchedErrorHandler}) => {
     useEffect(() => {
         likesService
             .getUsersLikes(user.id)
-            .then((res) => {
+            .then((res) => {              
+                const data = res.docs.map((doc) => doc.data().postId);
+                setUserLikes(data);
                 if (res.docs.length == 0) {
                     setIsLodading(false);
                 }
-                const data = res.docs.map((doc) => doc.data().postId);
-                setUserLikes(data);
             })
             .catch((err) => {
                 console.log(err);
