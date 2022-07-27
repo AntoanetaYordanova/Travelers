@@ -28,3 +28,5 @@ Travelers is blog created with ReactJS.
 - Edit or remove already existing posts
 - Like and dislike other user's posts
 - View My profile page where they can see all of their posts and liked posts
+
+### Live demo: https://antoanetayordanova.github.io/Travelers/
