@@ -21,12 +21,9 @@ const LikedPostsView = ({catchedErrorHandler}) => {
     useEffect(() => {
         likesService
             .getUsersLikes(user.id)
-            .then((res) => {              
+            .then((res) => {
                 const data = res.docs.map((doc) => doc.data().postId);
                 setUserLikes(data);
-                if (res.docs.length == 0) {
-                    setIsLodading(false);
-                }
             })
             .catch((err) => {
                 console.log(err);
@@ -51,9 +48,11 @@ const LikedPostsView = ({catchedErrorHandler}) => {
                     catchedErrorHandler();
                 });
 
-            if (i == userLikes.length - 1) {
-                setIsLodading(false);
-            }
+            setTimeout(() => {
+                if (i == userLikes.length - 1) {
+                    setIsLodading(false);
+                }
+            }, 300);
         }
     }, [userLikes]);
 
