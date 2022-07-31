@@ -24,6 +24,9 @@ const LikedPostsView = ({catchedErrorHandler}) => {
             .then((res) => {
                 const data = res.docs.map((doc) => doc.data().postId);
                 setUserLikes(data);
+                if(data.length == 0) {
+                    setIsLodading(false);
+                }
             })
             .catch((err) => {
                 console.log(err);
