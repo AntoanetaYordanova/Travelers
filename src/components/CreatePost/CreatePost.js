@@ -1,22 +1,13 @@
 import * as postService from '../../services/postService';
 import { useAuthContext } from '../../contexts/authContext';
 import { useState } from 'react';
-import { useEffect } from 'react';
 import styles from './CreatePost.module.css';
 import Error from '../Error/Error';
+import { useNavigate } from 'react-router-dom';
 
 const CreatePost = () => {
-    const [showMsg, setShowMsg] = useState(false);
     const [hasCatchedError, setHasCatchedError] = useState(false);
-
-    useEffect(() => {
-        if (showMsg) {
-            setTimeout(() => {
-                setShowMsg(false);
-            }, 3000);
-        }
-    }, [showMsg]);
-
+    const navigate = useNavigate();
     const { user } = useAuthContext();
     const imageUrlRegEx = /^https?:\/\//;
 
@@ -67,9 +58,7 @@ const CreatePost = () => {
                     ownerId: user.id,
                     creator: user.email,
                 });
-                setShowMsg(!showMsg);
-
-                setInputValues(formInititalState);
+                navigate('/my-profile');
             } catch (err) {
                 setHasCatchedError(true);
                 console.log(err);
@@ -206,15 +195,6 @@ const CreatePost = () => {
                     onSubmit={createPostHandler}
                     className={styles['form-style']}
                 >
-                    <h4
-                        className={
-                            showMsg
-                                ? styles['confirmation-msg']
-                                : styles['hide-msg']
-                        }
-                    >
-                        Post created
-                    </h4>
                     <h3>Create Post</h3>
                     <div>
                         <input

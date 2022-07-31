@@ -6,19 +6,11 @@ import styles from './Edit.module.css';
 import { useParams } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
+import { useNavigate } from 'react-router-dom';
 
 const Edit = () => {
     const [isLoading, setIsLoading] = useState(true);
-    const [showMsg, setShowMsg] = useState(false);
     const [hasCatchedError, setHasCatchedError] = useState(false);
-
-    useEffect(() => {
-        if (showMsg) {
-            setTimeout(() => {
-                setShowMsg(false);
-            }, 3000);
-        }
-    }, [showMsg]);
 
     const { user } = useAuthContext();
     const imageUrlRegEx = /^https?:\/\//;
@@ -32,6 +24,8 @@ const Edit = () => {
 
     const { id } = useParams();
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         postService
             .getById(id)
@@ -44,7 +38,7 @@ const Edit = () => {
                 setHasCatchedError(true);
                 console.log(err);
             });
-    }, [showMsg]);
+    }, []);
 
     const errorsInitialState = {
         title: {
@@ -85,7 +79,7 @@ const Edit = () => {
                     creator: user.email,
                 };
                 await postService.update(id, newPostData);
-                setShowMsg(!showMsg);
+                navigate('/blog');
             } catch (err) {
                 console.log(err);
             }
@@ -215,15 +209,6 @@ const Edit = () => {
             onSubmit={editPostHandler}
             className={styles['form-style']}
         >
-            <h4
-        className={
-            showMsg
-                ? styles['confirmation-msg']
-                : styles['hide-msg']
-        }
-    >
-        Post edited
-    </h4>
             <h3>Edit Post</h3>
             <div>
                 <input
