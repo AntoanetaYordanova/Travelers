@@ -1,21 +1,25 @@
 import { Link, NavLink } from 'react-router-dom';
 import styles from './Nav.module.css';
-import { useAuthContext } from '../../contexts/authContext'
+import { useAuthContext } from '../../contexts/authContext';
+import { useState } from 'react';
+
+const classNames = require('classnames');
 
 const Nav = () => {
-    const isActive = ({ isActive }) =>
+    const isLinkActive = ({ isActive }) =>
         isActive ? styles['active'] : undefined;
     const { isAuthenticated } = useAuthContext();
-    
+    const [isMenuActive, setIsMenuActive] = useState(false);
+
     const userNav = (
         <>
             <li>
-                <NavLink to={'/post'} className={isActive}>
+                <NavLink to={'/post'} className={isLinkActive}>
                     Create Post
                 </NavLink>
             </li>
             <li>
-                <NavLink to={'/my-profile'} className={isActive}>
+                <NavLink to={'/my-profile'} className={isLinkActive}>
                     My Profile
                 </NavLink>
             </li>
@@ -27,18 +31,28 @@ const Nav = () => {
 
     const guestNav = (
         <>
-         <li>
-                    <NavLink to={'/login'} className={isActive}>
-                        Login
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to={'/register'} className={isActive}>
-                        Register
-                    </NavLink>
-                </li>
+            <li>
+                <NavLink to={'/login'} className={isLinkActive}>
+                    Login
+                </NavLink>
+            </li>
+            <li>
+                <NavLink to={'/register'} className={isLinkActive}>
+                    Register
+                </NavLink>
+            </li>
         </>
-    )
+    );
+    
+    const navMenuClasses = classNames(
+        [styles['nav-menu']],
+        {[styles.active] : isMenuActive}
+    );
+
+    const hamburgerClass = classNames(
+        styles.hamburger,
+        {[styles.active] : isMenuActive}
+    );
 
     return (
         <nav>
@@ -47,19 +61,24 @@ const Nav = () => {
                     Travelers
                 </Link>
             </h2>
-            <ul className={styles['nav-menu']}>
-                <li>
-                    <NavLink to={'/'} className={isActive}>
-                        Home
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to={'/blog'} className={isActive}>
-                        Blog
-                    </NavLink>
-                </li>
-                {isAuthenticated ? userNav : guestNav}
-            </ul>
+                <ul className={navMenuClasses}>
+                    <li>
+                        <NavLink to={'/'} className={isLinkActive}>
+                            Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={'/blog'} className={isLinkActive}>
+                            Blog
+                        </NavLink>
+                    </li>
+                    {isAuthenticated ? userNav : guestNav}
+                </ul>
+                <section className={hamburgerClass} onClick={() => setIsMenuActive(!isMenuActive)}>
+                    <span className={styles.bar}></span>
+                    <span className={styles.bar}></span>
+                    <span className={styles.bar}></span>
+                </section>
         </nav>
     );
 };

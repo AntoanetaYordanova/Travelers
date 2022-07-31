@@ -20,6 +20,13 @@
           justify-content: space-between;
 }
 
+@media screen and (max-width: 500px) {
+  .post-section .post-actions-section a {
+    font-size: 0.8rem;
+    padding: 9px 12px;
+  }
+}
+
 .post-section .post-actions-section a:hover {
   cursor: pointer;
 }
@@ -47,8 +54,9 @@
   margin-right: 5px;
 }
 
-.post-section .post-actions-section .owner-action-section .confirmSection {
+.post-section .post-actions-section .owner-action-section .confirmSection, .post-section .post-actions-section .owner-action-section .hideConfirmSection {
   position: absolute;
+  z-index: 11;
   top: -105px;
   right: -65px;
   width: 360px;
@@ -60,7 +68,7 @@
   transition: opacity 0.5s;
 }
 
-.post-section .post-actions-section .owner-action-section .confirmSection button {
+.post-section .post-actions-section .owner-action-section .confirmSection button, .post-section .post-actions-section .owner-action-section .hideConfirmSection button {
   margin: 0 10px;
   border: 1px solid #0d6efd;
   padding: 0 10px;
@@ -68,34 +76,18 @@
   color: #0d6efd;
 }
 
-.post-section .post-actions-section .owner-action-section .confirmSection div {
+.post-section .post-actions-section .owner-action-section .confirmSection div, .post-section .post-actions-section .owner-action-section .hideConfirmSection div {
   margin-top: 5px;
 }
 
 .post-section .post-actions-section .owner-action-section .hideConfirmSection {
-  position: absolute;
-  top: -105px;
-  right: -65px;
-  width: 360px;
-  border: 1px solid #e8ba02;
-  border-radius: 6px;
-  padding: 5px;
-  background: rgba(249, 200, 7, 0.5);
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
   opacity: 0;
 }
 
-.post-section .post-actions-section .owner-action-section .hideConfirmSection button {
-  margin: 0 10px;
-  border: 1px solid #0d6efd;
-  padding: 0 10px;
-  border-radius: 6px;
-  color: #0d6efd;
-}
-
-.post-section .post-actions-section .owner-action-section .hideConfirmSection div {
-  margin-top: 5px;
+@media screen and (max-width: 450px) {
+  .post-section .post-actions-section .owner-action-section .confirmSection .hideConfirmSection {
+    right: -45px;
+  }
 }
 
 .post-section .img-wrapper {

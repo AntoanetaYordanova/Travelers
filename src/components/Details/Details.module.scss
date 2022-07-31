@@ -15,6 +15,13 @@
         display: flex;
         justify-content: space-between;
 
+        a {
+            @media screen and (max-width:500px) {
+                font-size: 0.8rem;
+                padding: 9px 12px;
+            }
+        }
+
         a:hover {
             cursor: pointer;
         }
@@ -34,8 +41,10 @@
             svg {
                 margin-right: 5px;
             }
-            .confirmSection {
+
+            .confirmSection, .hideConfirmSection {
                 position: absolute;
+                z-index: 11;
                 top: -105px;
                 right: -65px;
                 width: 360px;
@@ -55,33 +64,19 @@
                 div{
                     margin-top: 5px;
                 }
-
             }
     
             .hideConfirmSection {
-                position: absolute;
-                top: -105px;
-                right: -65px;
-                width: 360px;
-                border: 1px solid $accent-yellow-color-dark;
-                border-radius: 6px;
-                padding: 5px;
-                background: rgba($color: #F9C807 , $alpha: 0.5);
-                transition: opacity 0.5s;
                 opacity: 0;
-
-                button{
-                    margin: 0 10px;
-                    border: 1px solid #0d6efd;
-                    padding: 0 10px;
-                    border-radius: 6px;
-                    color: #0d6efd;
-                }
-
-                div{
-                    margin-top: 5px;
-                }
             }
+
+            @media screen and (max-width: 450px) {
+                .confirmSection .hideConfirmSection{
+                    right: -45px;
+                }
+                
+            }
+
         }
         
     }

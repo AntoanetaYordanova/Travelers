@@ -12,4 +12,10 @@ main {
   position: relative;
   min-height: 100vh;
 }
+
+@media screen and (max-width: 770px) {
+  main {
+    margin-top: 120px;
+  }
+}
 /*# sourceMappingURL=App.module.css.map */

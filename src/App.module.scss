@@ -12,5 +12,9 @@ main {
     background: $base-color-light;
     position: relative;
     min-height: 100vh;
+
+    @media screen and(max-width: 770px) {
+        margin-top: 120px;
+    }
 }
 

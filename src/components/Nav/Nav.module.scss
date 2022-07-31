@@ -4,12 +4,11 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-content: center;
     background: $base-color-light;
+    min-height: 70px;
     padding: 20px 30px;
-
-    @media screen and (max-width: 700px){
-        flex-direction: column;
-    }
+    box-shadow: 0px 3px 23px 4px rgba(0,0,0,0.11);
 }
 
 
@@ -25,13 +24,7 @@ nav {
     a:hover {
         color: $accent-yellow-color-dark;       
     }
-
-    @media screen and (max-width: 580px) {
-        flex-direction: column;
-        align-items: center;
-    }
 }
-
 h2 {
     font-size: $logo-font-size;
 }
@@ -48,4 +41,64 @@ h2 {
 ul .active {
     color: $accent-yellow-color-dark;
     text-decoration: underline;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger:hover {
+    .bar {
+        background-color: $accent-yellow-color-dark;
+    }
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: $accent-yellow-color-light;
+}
+
+@media screen and(max-width: 770px) {
+    nav {
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;    
+        z-index: 5;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: $base-color-light;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .nav-menu.active {
+        left: 0px; 
+    }
 }

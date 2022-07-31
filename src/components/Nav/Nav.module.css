@@ -9,17 +9,13 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   background: #f7f9fb;
+  min-height: 70px;
   padding: 20px 30px;
-}
-
-@media screen and (max-width: 700px) {
-  nav {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
+  -webkit-box-shadow: 0px 3px 23px 4px rgba(0, 0, 0, 0.11);
+          box-shadow: 0px 3px 23px 4px rgba(0, 0, 0, 0.11);
 }
 
 .nav-menu {
@@ -44,18 +40,6 @@ nav {
   color: #e8ba02;
 }
 
-@media screen and (max-width: 580px) {
-  .nav-menu {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-}
-
 h2 {
   font-size: 2rem;
 }
@@ -73,5 +57,64 @@ h2 {
 ul .active {
   color: #e8ba02;
   text-decoration: underline;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger:hover .bar {
+  background-color: #e8ba02;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #F9C807;
+}
+
+@media screen and (max-width: 770px) {
+  nav {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+  }
+  .hamburger {
+    display: block;
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    -webkit-transform: translateY(8px) rotate(45deg);
+            transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+            transform: translateY(-8px) rotate(-45deg);
+  }
+  .nav-menu {
+    position: fixed;
+    z-index: 5;
+    top: 70px;
+    left: -100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background: #f7f9fb;
+    width: 100%;
+    text-align: center;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  .nav-menu.active {
+    left: 0px;
+  }
 }
 /*# sourceMappingURL=Nav.module.css.map */
