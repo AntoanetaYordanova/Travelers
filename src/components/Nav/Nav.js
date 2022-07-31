@@ -11,20 +11,28 @@ const Nav = () => {
     const { isAuthenticated } = useAuthContext();
     const [isMenuActive, setIsMenuActive] = useState(false);
 
+    
+    const linkClickHandler = () => {
+        if(isMenuActive) {
+            setIsMenuActive(false);
+        }
+    }
+
+
     const userNav = (
         <>
             <li>
-                <NavLink to={'/post'} className={isLinkActive}>
+                <NavLink to={'/post'} className={isLinkActive} onClick={linkClickHandler}>
                     Create Post
                 </NavLink>
             </li>
             <li>
-                <NavLink to={'/my-profile'} className={isLinkActive}>
+                <NavLink to={'/my-profile'} className={isLinkActive} onClick={linkClickHandler}>
                     My Profile
                 </NavLink>
             </li>
             <li>
-                <Link to={'/logout'}>Logout</Link>
+                <Link to={'/logout'} onClick={linkClickHandler}>Logout</Link>
             </li>
         </>
     );
@@ -32,12 +40,12 @@ const Nav = () => {
     const guestNav = (
         <>
             <li>
-                <NavLink to={'/login'} className={isLinkActive}>
+                <NavLink to={'/login'} className={isLinkActive} onClick={linkClickHandler}>
                     Login
                 </NavLink>
             </li>
             <li>
-                <NavLink to={'/register'} className={isLinkActive}>
+                <NavLink to={'/register'} className={isLinkActive} onClick={linkClickHandler}>
                     Register
                 </NavLink>
             </li>
@@ -63,12 +71,12 @@ const Nav = () => {
             </h2>
                 <ul className={navMenuClasses}>
                     <li>
-                        <NavLink to={'/'} className={isLinkActive}>
+                        <NavLink to={'/'} className={isLinkActive} onClick={linkClickHandler}>
                             Home
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/blog'} className={isLinkActive}>
+                        <NavLink to={'/blog'} className={isLinkActive} onClick={linkClickHandler}>
                             Blog
                         </NavLink>
                     </li>
