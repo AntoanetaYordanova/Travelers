@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Travelers/static/css/main.2090c0f1.css",
-    "main.js": "/Travelers/static/js/main.f5cc1352.js",
+    "main.js": "/Travelers/static/js/main.c6453033.js",
     "static/js/787.c4e7f8f9.chunk.js": "/Travelers/static/js/787.c4e7f8f9.chunk.js",
     "static/media/lucas-wesney-ZNz5UPRb2N8-unsplash.jpg": "/Travelers/static/media/lucas-wesney-ZNz5UPRb2N8-unsplash.1630bdefaef0bef503f4.jpg",
     "index.html": "/Travelers/index.html",
     "main.2090c0f1.css.map": "/Travelers/static/css/main.2090c0f1.css.map",
-    "main.f5cc1352.js.map": "/Travelers/static/js/main.f5cc1352.js.map",
+    "main.c6453033.js.map": "/Travelers/static/js/main.c6453033.js.map",
     "787.c4e7f8f9.chunk.js.map": "/Travelers/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2090c0f1.css",
-    "static/js/main.f5cc1352.js"
+    "static/js/main.c6453033.js"
   ]
 }
