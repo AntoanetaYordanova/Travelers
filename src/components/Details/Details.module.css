@@ -4,7 +4,7 @@
   width: 85%;
   min-height: 90vh;
   margin: 20px auto;
-  text-align: center;
+  text-align: justify;
   background: #EAF0FC;
   padding: 4%;
   border-radius: 6px;
@@ -57,7 +57,7 @@
 .post-section .post-actions-section .owner-action-section .confirmSection, .post-section .post-actions-section .owner-action-section .hideConfirmSection {
   position: absolute;
   z-index: 11;
-  top: -105px;
+  top: 55px;
   right: -65px;
   width: 360px;
   border: 1px solid #e8ba02;
@@ -84,9 +84,16 @@
   opacity: 0;
 }
 
-@media screen and (max-width: 450px) {
-  .post-section .post-actions-section .owner-action-section .confirmSection .hideConfirmSection {
+@media screen and (max-width: 850px) {
+  .post-section .post-actions-section .owner-action-section .confirmSection, .post-section .post-actions-section .owner-action-section .hideConfirmSection {
     right: -45px;
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .post-section .post-actions-section .owner-action-section .confirmSection, .post-section .post-actions-section .owner-action-section .hideConfirmSection {
+    right: -30px;
   }
 }
 
@@ -119,6 +126,10 @@
 
 .post-section .source-link {
   margin: 0 5px;
+}
+
+.post-section h2, .post-section .footer {
+  text-align: center;
 }
 
 .action-link:hover, .source-link:hover {

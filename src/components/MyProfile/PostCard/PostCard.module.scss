@@ -8,6 +8,15 @@
     padding-bottom: 10px;
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 460px) {
+        width: 350px;
+    }
+
+    @media screen and (max-width: 370px) {
+        width: 32   0px;
+    }
+
     .img-wrapper {
         height: 250px;
         position: relative; 
@@ -70,7 +79,7 @@
         color: #fff;
     }
 
-    .confirmSection {
+    .confirmSection,  .hideConfirmSection {
         position: absolute;
         z-index: 3;
         top: 55px;
@@ -81,6 +90,7 @@
         padding: 5px;
         background: rgba($color: #F9C807 , $alpha: 0.5);
         transition: opacity 0.5s;
+        text-align: center;
         button{
             margin: 0 10px;
             border: 1px solid #0d6efd;
@@ -99,33 +109,6 @@
     }
 
     .hideConfirmSection {
-        position: absolute;
-        z-index: 3;
-        top: 55px;
-        right: -65px;
-        width: 325px;
-        border: 1px solid $accent-yellow-color-dark;
-        border-radius: 6px;
-        padding: 5px;
-        background: rgba($color: #F9C807 , $alpha: 0.5);
-        transition: opacity 0.5s;
         opacity: 0;
-
-        button{
-            margin: 0 10px;
-            border: 1px solid #0d6efd;
-            padding: 0 10px;
-            border-radius: 6px;
-            color: #0d6efd;
-        }
-
-        div{
-            margin-top: 5px;
-        }
-
-        
-        @media screen and (max-width: 610px) {
-            right: 35px;
-        }
     }
 }

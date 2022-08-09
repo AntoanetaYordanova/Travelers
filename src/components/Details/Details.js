@@ -140,6 +140,8 @@ const Details = () => {
                     </div>
                 </div>
                 <div className={styles['owner-action-section']}>
+                    
+                    {postData.ownerId == user.id ? authorSection : null}
                     <article className={styles[confirmSectionClassName]}>
                         Are you sure you want to delete this post?
                         <div>
@@ -147,7 +149,6 @@ const Details = () => {
                             <button onClick={noBtnHandler}>No</button>
                         </div>
                     </article>
-                    {postData.ownerId == user.id ? authorSection : null}
                 </div>
             </section>
             <div className={styles['img-wrapper']}>
@@ -159,9 +160,9 @@ const Details = () => {
             <article>
                 <h2>{postData.title}</h2>
                 <p>{postData.content}</p>
-                <h5>Author: {postData.creator}</h5>
+                <h5 className={styles.footer}>Author: {postData.creator}</h5>
                 {postData.source ? (
-                    <p>
+                    <p  className={styles.footer}>
                         Read
                         <a
                             href={postData.source}

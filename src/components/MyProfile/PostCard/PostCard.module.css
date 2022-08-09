@@ -14,6 +14,18 @@
           flex-direction: column;
 }
 
+@media screen and (max-width: 460px) {
+  .card {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .card {
+    width: 32   0px;
+  }
+}
+
 .card .img-wrapper {
   height: 250px;
   position: relative;
@@ -78,7 +90,7 @@
   color: #fff;
 }
 
-.card .confirmSection {
+.card .confirmSection, .card .hideConfirmSection {
   position: absolute;
   z-index: 3;
   top: 55px;
@@ -90,9 +102,10 @@
   background: rgba(249, 200, 7, 0.5);
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
+  text-align: center;
 }
 
-.card .confirmSection button {
+.card .confirmSection button, .card .hideConfirmSection button {
   margin: 0 10px;
   border: 1px solid #0d6efd;
   padding: 0 10px;
@@ -100,46 +113,17 @@
   color: #0d6efd;
 }
 
-.card .confirmSection div {
+.card .confirmSection div, .card .hideConfirmSection div {
   margin-top: 5px;
 }
 
 @media screen and (max-width: 610px) {
-  .card .confirmSection {
+  .card .confirmSection, .card .hideConfirmSection {
     right: 35px;
   }
 }
 
 .card .hideConfirmSection {
-  position: absolute;
-  z-index: 3;
-  top: 55px;
-  right: -65px;
-  width: 325px;
-  border: 1px solid #e8ba02;
-  border-radius: 6px;
-  padding: 5px;
-  background: rgba(249, 200, 7, 0.5);
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
   opacity: 0;
-}
-
-.card .hideConfirmSection button {
-  margin: 0 10px;
-  border: 1px solid #0d6efd;
-  padding: 0 10px;
-  border-radius: 6px;
-  color: #0d6efd;
-}
-
-.card .hideConfirmSection div {
-  margin-top: 5px;
-}
-
-@media screen and (max-width: 610px) {
-  .card .hideConfirmSection {
-    right: 35px;
-  }
 }
 /*# sourceMappingURL=PostCard.module.css.map */
