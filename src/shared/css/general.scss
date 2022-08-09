@@ -112,19 +112,15 @@ $post-body-font-size: 1.1rem;
             }
         }
 
-        @media screen and (max-width: 1200px) {
+        @media screen and (max-width: 1350px) {
             width: 60%;
         }
 
-        @media screen and (max-width: 950px) {
+        @media screen and (max-width: 1200px) {
             width: 75%;
         }
 
-        @media screen and (max-width: 650px) {
-            width: 90%;
-        }
-
-        @media screen and (max-width: 450px) {
+        @media screen and (max-width: 900px) {
             width: 100%;
         }
     }
@@ -136,6 +132,13 @@ $post-body-font-size: 1.1rem;
     padding: 7%;
     button.post-form-button {
         font-size: 1.3rem;
+    }
+
+    @media screen and (max-width: 550px) {
+        padding: 5%;
+    }
+    @media screen and (max-width: 400px) {
+        padding: 2%;
     }
 }
 

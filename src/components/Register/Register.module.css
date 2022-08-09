@@ -97,25 +97,19 @@
   color: #F9C807;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1350px) {
   .form-wrapper form {
     width: 60%;
   }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1200px) {
   .form-wrapper form {
     width: 75%;
   }
 }
 
-@media screen and (max-width: 650px) {
-  .form-wrapper form {
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 900px) {
   .form-wrapper form {
     width: 100%;
   }

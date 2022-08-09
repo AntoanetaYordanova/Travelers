@@ -190,6 +190,9 @@ const CreatePost = () => {
 
     const view = (
         <section className={styles['form-wrapper']}>
+                <section className={styles.legend}>
+                    <p>** for new row use &lt;br&gt;</p>
+                </section>
                 <form
                     method="POST"
                     onSubmit={createPostHandler}

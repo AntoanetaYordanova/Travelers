@@ -73,6 +73,14 @@ const Details = () => {
         });
     }
 
+
+    function transformContent () {
+        if(postData.content) {
+            const splitConent = postData.content.split('<br>');
+            return splitConent.map(d => <p>{d} </p>)
+        }
+    }
+    
     const likeHandler = async () => {
         try {
             if (!userLikesData.hasLiked) {
@@ -110,6 +118,8 @@ const Details = () => {
     const noBtnHandler = () => {
         setConfirmSectionClassName('hideConfirmSection')
     }
+
+    const tranformedContent = transformContent();
 
     const likeSection = (
         <a title={userLikesData.hasLiked ? 'Take like back' : 'Give a like'}>
@@ -159,7 +169,7 @@ const Details = () => {
             </div>
             <article>
                 <h2>{postData.title}</h2>
-                <p>{postData.content}</p>
+                <p>{tranformedContent}</p>
                 <h5 className={styles.footer}>Author: {postData.creator}</h5>
                 {postData.source ? (
                     <p  className={styles.footer}>

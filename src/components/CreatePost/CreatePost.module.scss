@@ -2,9 +2,30 @@
 
 .form-wrapper {
     @include post-form;
-   
+       
     form {
         position: relative;
+    }
+
+    position: relative;
+
+    .legend {
+        position: absolute;
+
+        
+    }
+
+    @media screen and (max-width: 1350px) {
+        .legend {
+            left: 10px;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        .legend {
+            bottom: 5px;
+        }
+        padding-bottom: 100px;
     }
 }
 

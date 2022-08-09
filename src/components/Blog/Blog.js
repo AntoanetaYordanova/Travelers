@@ -30,14 +30,15 @@ const Blog = () => {
     }, []);
 
 
-    const shortenContent = (content) => {
-        const short = content.slice(0, 700);
+    const transofrmContent = (content) => {
+        const transformed = content.split('<br>').join(' ');
+        const short = transformed.slice(0, 700);
         return `${short}...`;
     };
 
     const mappedPosts = posts.map((e) => ({
         ...e,
-        content: shortenContent(e.content),
+        content: transofrmContent(e.content),
     }));
 
     const content = mappedPosts.map((e) => {
